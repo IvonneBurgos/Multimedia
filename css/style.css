@@ -1,0 +1,173 @@
+/*Barra de navegación*/
+.navbar-inverse {
+    background-color: #19436B;
+    border-color: #19436B;
+    color: white;
+}
+
+/* Estilo de la barra de navegación */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+a.navbar-brand{
+    color: white !important;
+}
+
+a.navbar-brand:hover {
+    color: #C2D2E9 !important;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 100%}
+
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+    background-color: #19436B;
+    border-color: #19436B;
+    color: white;
+    padding: 15px;
+    width: 100%;
+}
+
+h1 {
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26.4px;
+    color:#19436B;
+}
+
+h3 {
+	font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+    padding-bottom: 20px;
+    color:#19436B;
+}
+
+p, div.refresh {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+label {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 15px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
+}
+
+.btn-primary {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
+    border-radius: 0px;
+}
+
+a.icono{
+    color:#05CEAA;
+}
+
+a.icono: hover{
+    color:#9dfbeb;
+}
+
+.col-md-12 {
+    padding-bottom: 20px;
+}
+
+div.col-md-2.col-sm-6.col-xs-6{
+    margin-bottom: 15px;
+}
+
+div.col-md-2.col-sm-12.col-xs-12{
+    margin-bottom: 15px;
+}
+
+/* CSS DE CRUD */
+
+
+div.col-sm-2.sidenav{
+    background-color: #e6fefa;
+    height: 740px !important;
+}
+
+.well{
+    background-color: #05CEAA;
+    border-color: #05CEAA;
+    border-radius: 0px;
+}
+
+.well.back{
+    background-color: #F25F2B;
+    border-color: #F25F2B;
+    border-radius: 0px;
+}
+
+div.well p{
+    margin-bottom: 0px;
+}
+
+a {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 700;
+	line-height: 20px;
+    color: white;
+}
+
+a:hover{
+    color: #9dfbeb;
+    text-decoration: none;
+}
+
+a:focus{
+    color: #9dfbeb;
+    text-decoration: none;
+}
+
+.form-control{
+    width: 50%;
+    resize: horizontal !important;
+    overflow: auto !important;
+} 
+
+div.logo{
+   padding-top:50px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 976px) {
+
+.sidenav {
+    height: auto;
+    padding: 15px;
+}
+.row.content {height:auto;}
+    
+}
