@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="css/style.css" type="text/css"/>    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="js/script.js"></script>
+  <script src="../js/script_opcion.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
 </head>
