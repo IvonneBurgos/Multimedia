@@ -58,7 +58,7 @@
     <div class="col-sm-12">
         
         <div class="col-md-12">
-            <h3>Persona</h3>
+            <h3>Seguridad de Administración</h3>
                 <div class="col-md-2 col-sm-3 col-xs-6">
                     <p>Opción</p>
                     <a href="vista/vista_opcion.php"><i class="fa fa-list-alt fa-4x"></i></a>
@@ -76,9 +76,13 @@
        
        <div class="col-md-12">
             <h3>Persona</h3>
+                 <div class="col-md-2 col-sm-3 col-xs-6">
+                    <p>Persona</p>
+                    <a href="#"><i class="fa fa-user fa-4x"></i></a>
+                </div>
                 <div class="col-md-2 col-sm-3 col-xs-6">
                     <p>Usuario</p>
-                    <a href="controlador/controlador_opcion.php"><i class="fa fa-user fa-4x"></i></a>
+                    <a href="#"><i class="fa fa-user fa-4x"></i></a>
                 </div>
                  <div class="col-md-2 col-sm-3 col-xs-6">
                     <p>Paciente</p>
