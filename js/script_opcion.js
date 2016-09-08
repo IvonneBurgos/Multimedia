@@ -62,16 +62,19 @@ $( document).ready(function(){
     	});
           refrescar();
 });
-    
-    /*$('#enviarInsert').click(function(){
-   $('#insertar #resultado').append("<div><?php include( 'controlador/controlador_opcion.php' ); ?></div>");
-});*/  
 });
 
 
 function refrescar(){
     $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
-   $(".refresh").html(resp);});
+    var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            if (x==0){
+                $(".refresh").html('');
+            }
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre+ '</div>')
+        }
+       ;});
 }
 
   

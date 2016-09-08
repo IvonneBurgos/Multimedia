@@ -9,7 +9,10 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         if ($err) {	echo 'Error en Constructor' . $err ; } 
         //pasando parametros de entrada que seran pasados hacia el metodo
        
-
+        $pila = [];
+        $pilamaster= [];
+        $pilasuperior = [];
+        $arregloCampos = ['id','nombre','url'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaOpcionPerfil');
 
@@ -32,16 +35,16 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 	if ($err) {		// Muestra el error
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
-        echo '</br>';
         for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
             $linea = (explode("@",$resultado)[$x]);
-            echo '<div class="col-md-10 divOpcionPerfil">';
-            for ($z = 0; $z < sizeof(explode("#",$linea)); $z++){
-                print_r (explode("#",$linea)[$z]);
-                echo "  ";
+            $pila =[];
+            for ($z = 0; $z < (sizeof(explode("#",$linea))-2); $z++){
+                $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
             }
-            echo '</div><br><br>';
+            array_push($pilamaster,$pila);
         }
+        $pilasuperior['listaopciones']=$pilamaster;
+        echo json_encode($pilasuperior);
 	}
 }
         ?>

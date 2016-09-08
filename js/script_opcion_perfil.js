@@ -1,10 +1,10 @@
 $( document).ready(function(){
-    
+     cargarListas();
     $('#contenedor > div').hide();
     $('#presentacion').show();
     
     $('#insert').click(function(){
-     
+         
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -71,13 +71,30 @@ $( document).ready(function(){
 
 function refrescar(){
     $.post("../controlador/opcion_perfil/controlador_opcion_perfil_consultar.php", function(resp){
-   $(".refresh").html(resp);});
+        console.log(resp);
+    var parse = JSON.parse(resp);
+        
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            if (x==0){
+                $(".refresh").html('');
+            }
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre + '</div>')
+        }
+       ;});
 }
 
 function cargarListas(){
     var arrayOpcion = Array();
-    $.post("../opcion/controlador_opcion_consultar.php", function(resp){
+    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            if (x==0){
+                $(".refresh").html('');
+            }
+            $("#ingresarOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
     });
+    
 }
 
   

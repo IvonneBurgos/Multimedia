@@ -38,7 +38,7 @@
                     <label>Nombre de Perfil:</label><br>
                     <select id='ingresarPerfil'></select><br>
                     <label>Nombre de Opción:</label><br>
-                    <select id='ingresarPerfil'></select>
+                    <select id='ingresarOpcion'></select>
                
                 </div>
             </form>
