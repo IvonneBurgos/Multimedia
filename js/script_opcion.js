@@ -30,6 +30,8 @@ $( document).ready(function(){
     $('#delete').click(function(){
         refrescar();
         cargarListas();
+        $("#eliminar #resultado1").html('');
+        $("#eliminar #resultado2").html('');
         $('#eliminar').show();
         $('#insertar').hide();
         $('#leer').hide();
@@ -38,6 +40,7 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
+        
         $.post("../controlador/opcion/controlador_opcion_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
    $("#insertar #resultado").html(resp);
     	});
@@ -51,17 +54,23 @@ $( document).ready(function(){
 });
     
     $("#enviarNombre").click(function(){
+        $("#eliminar #resultado1").html('');
+        $("#eliminar #resultado2").html('');
          $.post("../controlador/opcion/controlador_opcion_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
+        cargarListas();
 });
     
       $("#enviarId").click(function(){
+         $("#eliminar #resultado1").html('');
+         $("#eliminar #resultado2").html('');
          $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
+          cargarListas();
 });
 });
 

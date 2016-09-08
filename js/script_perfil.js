@@ -50,17 +50,19 @@ $( document).ready(function(){
 });
     
     $("#enviarNombre").click(function(){
-         $.post("../controlador/opcion/controlador_opcion_eliminar_nombre.php",{nombre: $('#eliminar #nombre').val()}, function(resp){
+         $.post("../controlador/perfil/controlador_perfil_eliminar_nombre.php",{nombre: $('#eliminaNombrePerfil option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
+        cargarListas();
 });
     
       $("#enviarId").click(function(){
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminar #id').val()}, function(resp){
+         $.post("../controlador/perfil/controlador_perfil_eliminar_id.php",{id: $('#eliminaIdPerfil option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
+          cargarListas();
 });
     
     /*$('#enviarInsert').click(function(){
