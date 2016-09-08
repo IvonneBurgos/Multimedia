@@ -47,7 +47,7 @@
             <h3>Persona</h3>
                  <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Persona</p>
-                    <a href="#" class="icono"><i class="fa fa-user fa-4x"></i></a>
+                    <a href="vista/vista_persona.php" class="icono"><i class="fa fa-user fa-4x"></i></a>
                 </div>
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Usuario</p>
