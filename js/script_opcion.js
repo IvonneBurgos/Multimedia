@@ -20,7 +20,7 @@ $( document).ready(function(){
         $('#presentacion').hide();
     });
     $('#update').click(function(){
-        
+        cargarListas();
         $('#modificar').show();
         $('#leer').hide();
         $('#insertar').hide();
@@ -92,15 +92,9 @@ function cargarListas(){
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+             $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
-    //Llama al servicio de las opciones y llena un select con ellas
-    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
-        var parse = JSON.parse(resp);
-        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
-        }
-    });
 }
 
   

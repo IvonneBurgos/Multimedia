@@ -1,7 +1,7 @@
 $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
-    
+    cargarListas();
     $('#insert').click(function(){
          
         $('#insertar').show();
@@ -19,7 +19,7 @@ $( document).ready(function(){
         $('#presentacion').hide();
     });
     $('#update').click(function(){
-       
+        cargarListas();
         $('#modificar').show();
         $('#leer').hide();
         $('#insertar').hide();
@@ -27,6 +27,7 @@ $( document).ready(function(){
         $('#presentacion').hide();
     });
     $('#delete').click(function(){
+        cargarListas();
         refrescar();
         $('#eliminar').show();
         $('#insertar').hide();
@@ -43,7 +44,7 @@ $( document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/opcion/controlador_opcion_modificar.php",{id: $('#id').val(), nombre: $('#modificar #nombre').val(), url: $('#modificar #url').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/perfil/controlador_perfil_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
@@ -80,6 +81,25 @@ function refrescar(){
             $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre + '</div>')
         }
        ;});
+}
+
+function cargarListas(){
+      //Limpia los select
+    $('#eliminaNombrePerfil')
+    .empty();
+    $('#eliminaIdPerfil')
+    .empty();
+    $('#idModificar')
+    .empty();
+      //Llama al servicio de las opciones y llena un select con ellas
+    $.post("../controlador/perfil/controlador_perfil_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#eliminaIdPerfil").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            $("#eliminaNombrePerfil").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    ;});
 }
 
 

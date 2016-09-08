@@ -64,9 +64,9 @@
                     <h3>Modificar una Perfil</h3>
                     <br>
                     <label>Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='idModificar'></select><br>
                     <label>Nombre: </label><br>
-                    <input id="nombre_perfil" class="form-control" type="text" name="nombre"><br>
+                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
@@ -95,13 +95,13 @@
 
                 <div class="col-sm-5 text-left"> 
 
-                    <label>Eliminar por Nombre:</label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
+                     <label>Eliminar por Nombre:</label><br>
+                    <select id='eliminaNombrePerfil'></select><br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='eliminaIdPerfil'></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 
