@@ -67,7 +67,7 @@
                 </div>  
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Etnia</p>
-                    <a href="#" class="icono"><i class="fa fa-users fa-4x"></i></a>
+                    <a href="vista/vista_etnia.php" class="icono"><i class="fa fa-users fa-4x"></i></a>
                 </div>  
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Religión</p>
