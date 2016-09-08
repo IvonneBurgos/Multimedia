@@ -1,5 +1,4 @@
 $( document).ready(function(){
-     cargarListas();
     $('#contenedor > div').hide();
     $('#presentacion').show();
     
@@ -37,8 +36,8 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_insertar.php",{nombre_perfil: $('#ingresarPerfil option:selected').text(), nombre_opcion: $('#ingresarOpcion option:selected').text()}, function(resp){
-        $("#insertar #resultado").html(resp);
+        $.post("../controlador/perfil/controlador_perfil_insertar.php",{nombre_perfil: $('#insertar #nombre_perfil').val()}, function(resp){
+   $("#insertar #resultado").html(resp);
     	});
         
 });
@@ -70,7 +69,7 @@ $( document).ready(function(){
 
 
 function refrescar(){
-    $.post("../controlador/opcion_perfil/controlador_opcion_perfil_consultar.php", function(resp){
+    $.post("../controlador/perfil/controlador_perfil_consultar.php", function(resp){
         console.log(resp);
     var parse = JSON.parse(resp);
         
@@ -78,31 +77,11 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].perfil + " " +parse.listaopciones[x].opcion + '</div>');
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre + '</div>')
         }
        ;});
 }
 
-function cargarListas(){
-    $('#ingresarPerfil')
-    .empty();
-    $('#ingresarOpcion')
-    .empty();
-      //Llama al servicio de los perfiles y llena un select con ellas
-    $.post("../controlador/perfil/controlador_perfil_consultar.php", function(resp){
-        var parse = JSON.parse(resp);
-        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarPerfil").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
-        }
-    ;});
-    //Llama al servicio de las opciones y llena un select con ellas
-    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
-        var parse = JSON.parse(resp);
-        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
-        }
-    });
-}
 
   
 

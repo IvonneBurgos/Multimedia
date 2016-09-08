@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css"/>     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/script_opcion_perfil.js"></script>
+  <script src="../js/script_perfil.js"></script>
   
 </head>
 <body>
@@ -33,13 +33,10 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nuevo Perfil</h3>
+                    <h3>Ingresar Nuevo Perfil</h3>
                     <br>
                     <label>Nombre de Perfil:</label><br>
-                    <select id='ingresarPerfil'></select><br>
-                    <label>Nombre de Opción:</label><br>
-                    <select id='ingresarOpcion'></select>
-               
+                    <input id="nombre_perfil" class="form-control" type="text" name="nombre"><br>
                 </div>
             </form>
            
@@ -64,14 +61,12 @@
             
             <form>
                 <div class="form-group">   
-                    <h3>Modificar una Opción</h3>
+                    <h3>Modificar una Perfil</h3>
                     <br>
                     <label>Id:</label><br>
                     <input id="id" class="form-control" type="text" name="id"><br>
-                    <label>Nombre : </label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url"><br>
+                    <label>Nombre: </label><br>
+                    <input id="nombre_perfil" class="form-control" type="text" name="nombre"><br>
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
@@ -90,7 +85,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Opción</h3>
+                <h3>Eliminar Perfil</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">

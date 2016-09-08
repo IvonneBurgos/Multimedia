@@ -67,7 +67,7 @@
                     <h3>Modificar una Opción</h3>
                     <br>
                     <label>Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='idModificar'></select><br>
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     <label>Url:</label><br>
@@ -101,12 +101,12 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
+                    <select id='eliminaNombreOpcion'></select><br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='eliminaIdOpcion'></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 

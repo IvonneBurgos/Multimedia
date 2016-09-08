@@ -32,9 +32,7 @@
             if ($err) {		// Muestra el error
                 echo 'Error' . $err ;
             } else {		// Muestra el resultado
-
-               // $resultadoFinal = $resultado;
-            print_r ($resultado);
+            print_r ($resultado . " + " . $_POST['nombre_perfil'] . "  + " . $_POST['nombre_opcion'] );
             }
         }
 

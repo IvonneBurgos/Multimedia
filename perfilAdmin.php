@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <p>Perfil</p>
-                    <a href="#" class="icono"><i class="fa fa-user fa-4x"></i></a>
+                    <a href="vista/vista_perfil.php" class="icono"><i class="fa fa-user fa-4x"></i></a>
                 </div>
       
        </div>

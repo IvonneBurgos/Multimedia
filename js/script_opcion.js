@@ -2,7 +2,7 @@ $( document).ready(function(){
     
     $('#contenedor > div').hide();
     $('#presentacion').show();
-    
+     cargarListas();
     $('#insert').click(function(){
      
         $('#insertar').show();
@@ -20,7 +20,7 @@ $( document).ready(function(){
         $('#presentacion').hide();
     });
     $('#update').click(function(){
-       
+        
         $('#modificar').show();
         $('#leer').hide();
         $('#insertar').hide();
@@ -29,6 +29,7 @@ $( document).ready(function(){
     });
     $('#delete').click(function(){
         refrescar();
+        cargarListas();
         $('#eliminar').show();
         $('#insertar').hide();
         $('#leer').hide();
@@ -44,20 +45,20 @@ $( document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/opcion/controlador_opcion_modificar.php",{id: $('#id').val(), nombre: $('#modificar #nombre').val(), url: $('#modificar #url').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/opcion/controlador_opcion_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), url: $('#modificar #url').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
     
     $("#enviarNombre").click(function(){
-         $.post("../controlador/opcion/controlador_opcion_eliminar_nombre.php",{nombre: $('#eliminar #nombre').val()}, function(resp){
+         $.post("../controlador/opcion/controlador_opcion_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
 });
     
       $("#enviarId").click(function(){
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminar #id').val()}, function(resp){
+         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -72,9 +73,34 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre+ '</div>')
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>')
         }
        ;});
+}
+
+function cargarListas(){
+      //Limpia los select
+    $('#eliminaNombreOpcion')
+    .empty();
+    $('#eliminaIdOpcion')
+    .empty();
+    $('#idModificar')
+    .empty();
+      //Llama al servicio de las opciones y llena un select con ellas
+    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+        }
+    ;});
+    //Llama al servicio de las opciones y llena un select con ellas
+    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
 }
 
   
