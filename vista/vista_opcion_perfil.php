@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css"/>     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/script_opcion.js"></script>
+  <script src="../js/script_opcion_perfil.js"></script>
   
 </head>
 <body>
@@ -33,12 +33,12 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nueva Opción</h3>
+                    <h3>Ingresar nueva Opción por Perfil</h3>
                     <br>
-                    <label>Nombre:</label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url">
+                    <label>Nombre de Perfil:</label><br>
+                    <select id='ingresarPerfil'></select><br>
+                    <label>Nombre de Opción:</label><br>
+                    <select id='ingresarPerfil'></select>
                
                 </div>
             </form>
@@ -68,7 +68,7 @@
                     <br>
                     <label>Id:</label><br>
                     <input id="id" class="form-control" type="text" name="id"><br>
-                    <label>Nombre: </label><br>
+                    <label>Nombre : </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     <label>Url:</label><br>
                     <input id="url" class="form-control" type="text" name="url"><br>

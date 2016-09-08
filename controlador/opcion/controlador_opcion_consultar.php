@@ -33,15 +33,15 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
         echo '</br>';
-            for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
-                $linea = (explode("@",$resultado)[$x]);
-                for ($z = 0; $z < sizeof(explode("#",$linea)); $z++){
-                    print_r(explode("#",$linea)[$z]);
-                    echo "  ";
-                }
-                    echo '<br>';
-                    echo '<br>';
+        for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
+            $linea = (explode("@",$resultado)[$x]);
+            echo '<div class="col-md-10 divOpcionPerfil">';
+            for ($z = 0; $z < sizeof(explode("#",$linea)); $z++){
+                print_r(explode("#",$linea)[$z]);
+                echo "  ";
             }
+            echo '</div><br><br>';
+        }
 	}
 }
         ?>

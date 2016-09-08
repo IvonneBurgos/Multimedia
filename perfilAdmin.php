@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/font-awesome/css/font-awesome.css">
   <link rel="stylesheet" href="css/style.css" type="text/css"/>    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="../js/script_opcion.js"></script>
+ <!-- <script src="../js/script_opcion.js"></script>-->
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
 </head>
@@ -34,7 +34,7 @@
                 </div>
                  <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Opción por Perfil</p>
-                    <a href="#" class="icono"><i class="fa fa-th-list fa-4x"></i></a>
+                    <a href="vista/vista_opcion_perfil.php" class="icono"><i class="fa fa-th-list fa-4x"></i></a>
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <p>Perfil</p>

@@ -37,7 +37,7 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/opcion/controlador_opcion_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
+        $.post("../controlador/opcion/controlador_opcion_insertar.php",{nombre_perfil: $('#insertar #nombre_perfil').val(), nombre_opcion: $('#insertar #nombre_opcion').val()}, function(resp){
    $("#insertar #resultado").html(resp);
     	});
         
@@ -70,8 +70,14 @@ $( document).ready(function(){
 
 
 function refrescar(){
-    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
+    $.post("../controlador/opcion_perfil/controlador_opcion_perfil_consultar.php", function(resp){
    $(".refresh").html(resp);});
+}
+
+function cargarListas(){
+    var arrayOpcion = Array();
+    $.post("../opcion/controlador_opcion_consultar.php", function(resp){
+    });
 }
 
   
