@@ -41,14 +41,14 @@ $( document).ready(function(){
     
     $("#enviarInsert").click(function(){
         
-        $.post("../controlador/paciente/controlador_paciente_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
+        $.post("../controlador/especialidad/controlador_especialidad_insertar.php",{nombre: $('#insertar #nombre').val()}, function(resp){
    $("#insertar #resultado").html(resp);
     	});
         
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/opcion/controlador_opcion_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), url: $('#modificar #url').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/especialidad/controlador_especialidad_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
@@ -76,23 +76,25 @@ $( document).ready(function(){
 
 
 function refrescar(){
-    $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
+    $.post("../controlador/especialidad/controlador_especialidad_consultar.php", function(resp){
+        console.log(resp);
     var parse = JSON.parse(resp);
-        var save = parse.listaopciones[0].length;
-        if (parse.listaopciones[0].length > 0 ){
+        if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
+            console.log('hola');
             for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.lista[x] + parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
-        }
+            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
+        };
+            
         }
         else{
-                console.log(parse.listaopciones[0].length);
+            console.log(parse.listaopciones[0].length);
                 $(".refresh").html('no hay datos que presentar');
             }
         
-       });
+       ;});
 }
 
 function cargarListas(){
@@ -104,7 +106,7 @@ function cargarListas(){
     $('#idModificar')
     .empty();
       //Llama al servicio de las opciones y llena un select con ellas
-    $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
+    $.post("../controlador/especialidad/controlador_especialidad_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
@@ -112,13 +114,6 @@ function cargarListas(){
              $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
-}
-
-function isEmptyJSON(obj) {
-  for(var i in obj) { 
-      return false; 
-  }
-  return true;
 }
 
   
