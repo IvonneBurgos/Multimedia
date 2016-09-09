@@ -55,7 +55,7 @@
                 </div>
                  <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Paciente</p>
-                    <a href="#" class="icono"><i class="fa fa-hotel fa-4x"></i></a>
+                    <a href="vista/vista_paciente.php" class="icono"><i class="fa fa-hotel fa-4x"></i></a>
                 </div>
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Dirección</p>
