@@ -79,7 +79,7 @@ function refrescar(){
     $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
     var parse = JSON.parse(resp);
         var save = parse.listaopciones[0].length;
-        if (parse.listaopciones[0].length > 0 ){
+        if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
             for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             if (x==0){
                 $(".refresh").html('');
@@ -88,7 +88,6 @@ function refrescar(){
         }
         }
         else{
-                console.log(parse.listaopciones[0].length);
                 $(".refresh").html('no hay datos que presentar');
             }
         

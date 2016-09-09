@@ -56,7 +56,7 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
         $("#eliminar #resultado1").html('');
         $("#eliminar #resultado2").html('');
-         $.post("../controlador/opcion/controlador_opcion_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/especialidad/controlador_especialidad_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
@@ -66,7 +66,7 @@ $( document).ready(function(){
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/especialidad/controlador_especialidad_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -77,25 +77,21 @@ $( document).ready(function(){
 
 function refrescar(){
     $.post("../controlador/especialidad/controlador_especialidad_consultar.php", function(resp){
-        console.log(resp);
     var parse = JSON.parse(resp);
-        if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
-            console.log('hola');
-            for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            if (x==0){
-                $(".refresh").html('');
-            }
-            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
-        };
-            
+    if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined)
+    {
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+        if (x==0){
+            $(".refresh").html('');
         }
-        else{
-            console.log(parse.listaopciones[0].length);
-                $(".refresh").html('no hay datos que presentar');
-            }
-        
-       ;});
-}
+            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
+        }
+    }
+    else
+    {
+        $(".refresh").html('no hay datos que presentar');
+    }
+});}
 
 function cargarListas(){
       //Limpia los select
@@ -112,8 +108,7 @@ function cargarListas(){
             $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
              $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
-        }
-    ;});
+        }});
 }
 
   

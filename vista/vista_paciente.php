@@ -33,7 +33,7 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nueva Opción</h3>
+                    <h3>Ingresar nuevo Paciente</h3>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
@@ -50,11 +50,11 @@
         </div>
         
         <div id="presentacion">
-            <h1>Panel de Administración de Opciones</h1>
+            <h1>Panel de Administración de Pacientes</h1>
         </div>
         
         <div id="leer">
-            <h3>Lista de Opciones</h3>
+            <h3>Lista de Pacientes</h3>
             <div class="refresh">
                 <p>Espere un momento...</p>
             </div>   
@@ -64,7 +64,7 @@
             
             <form>
                 <div class="form-group">   
-                    <h3>Modificar una Opción</h3>
+                    <h3>Modificar una Pacientes</h3>
                     <br>
                     <label>Id:</label><br>
                     <select id='idModificar'></select><br>
@@ -90,7 +90,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Opción</h3>
+                <h3>Eliminar Paciente</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">

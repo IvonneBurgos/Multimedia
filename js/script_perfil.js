@@ -75,14 +75,17 @@ function refrescar(){
     $.post("../controlador/perfil/controlador_perfil_consultar.php", function(resp){
         console.log(resp);
     var parse = JSON.parse(resp);
-        
+    if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             if (x==0){
                 $(".refresh").html('');
             }
             $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].nombre + '</div>')
-        }
-       ;});
+        }}
+        
+        else{
+                $(".refresh").html('no hay datos que presentar');
+            }});
 }
 
 function cargarListas(){

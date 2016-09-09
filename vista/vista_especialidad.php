@@ -33,7 +33,7 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nueva Opción</h3>
+                    <h3>Ingresar nueva Especialidad</h3>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
