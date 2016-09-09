@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
        
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('listaOpcion');
+        $resultado = $client->call('insertarPersona');
 
         
         //¿ocurrio error al llamar al web service?

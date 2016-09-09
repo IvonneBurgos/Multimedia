@@ -35,11 +35,34 @@
                 <div class="form-group">    
                     <h3>Ingresar nueva Persona</h3>
                     <br>
+                    <label>Cédula:</label><br>
+                    <input id="cedula" class="form-control" type="text" name="nombre"><br>
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url">
-               
+                    <label>Apellido:</label><br>
+                    <input id="apellido" class="form-control" type="text" name="nombre"><br>
+                    <label>Fecha de Nacimiento:</label><br>
+                    <input id="fechaNacimiento" class="form-control" type="date" name="nombre"><br>
+                    <label>Género:</label><br>
+                    <input id="genero" class="form-control" type="text" name="nombre"><br>
+                    <label>Ocupación:</label><br>
+                    <input id="ocupacion" class="form-control" type="text" name="nombre"><br>
+                    <label>Correo:</label><br>
+                    <input id="correo" class="form-control" type="email" name="nombre"><br>
+                    <label>Número de Hijos:</label><br>
+                    <input id="numeroHijos" class="form-control" type="number" name="nombre"><br>
+                    <label>Usuario:</label><br>
+                    <select id='ingresarUsuario'></select><br>
+                    <label>Ciudad Nacimiento:</label><br>
+                    <select id='ingresarCiudadNacimiento'></select><br>
+                    <label>Nivel Instrucción:</label><br>
+                    <select id='ingresarNivelInstruccion'></select><br>
+                    <label>Religión:</label><br>
+                    <select id='ingresarReligion'></select><br>
+                    <label>Estado Civil:</label><br>
+                    <select id='ingresarEstadoCivil'></select><br>
+                    <label>Etnia:</label><br>
+                    <select id='ingresarEtnia'></select>
                 </div>
             </form>
            

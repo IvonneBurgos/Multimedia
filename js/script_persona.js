@@ -74,6 +74,62 @@ function refrescar(){
    $(".refresh").html(resp);});
 }
 
+function cargarListas(){
+    $('#ingresarUsuario')
+    .empty();
+    $('#ingresarCiudadNacimiento')
+    .empty();
+    $('#ingresarNivelInstruccion')
+    .empty();
+    $('#ingresarReligion')
+    .empty();
+    $('#ingresarEstadoCivil')
+    .empty();
+    $('#ingresarEtnia')
+    .empty();
+      //Llama al servicio de los usuarios y llena un select con ellas
+    $.post("../controlador/usuario/controlador_usuario_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarUsuario").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    ;});
+    //Llama al servicio de las Ciudades de Nacimiento y llena un select con ellas
+    $.post("../controlador/ciudad_nacimiento/controlador_ciudad_nacimiento_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarCiudadNacimiento").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
+    //Llama al servicio de los Niveles de Instruccion y llena un select con ellas
+    $.post("../controlador/nivel_instruccion/controlador_nivel_instruccion_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarNivelInstruccion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
+    //Llama al servicio de las religiones y llena un select con ellas
+    $.post("../controlador/religion/controlador_religion_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarReligion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
+    //Llama al servicio de los estados civiles y llena un select con ellas
+    $.post("../controlador/estado_civil/controlador_estado_civil_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarEstadoCivil").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
+    //Llama al servicio de las etnias y llena un select con ellas
+    $.post("../controlador/etnia/controlador_etnia_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#ingresarEtnia").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    });
+}
   
 
 
