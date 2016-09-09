@@ -11,6 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
+        $arregloCampos = ['id','nombre','clave','estado'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaUsuario');
         
@@ -35,6 +36,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
             $linea = (explode("@",$resultado)[$x]);
             $pila =[];
+            for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
                 $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
             }
             array_push($pilamaster,$pila);
