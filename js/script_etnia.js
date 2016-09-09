@@ -54,6 +54,7 @@ $( document).ready(function(){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
+        cargarListas();
 });
     
       $("#enviarId").click(function(){
@@ -61,6 +62,7 @@ $( document).ready(function(){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
+          cargarListas();
 });
 });
 
