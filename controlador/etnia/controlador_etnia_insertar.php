@@ -12,7 +12,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarEtnia', array('nombre'=> $_POST['nombre']));
+        $resultado = $client->call('agregarEtnia', array('nombre'=> $_POST['nombre_etnia']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
