@@ -9,6 +9,7 @@ $( document).ready(function(){
         $('#modificar').hide();
         $('#eliminar').hide();
         $('#presentacion').hide();
+        limpiarCampos();
     });
      $('#read').click(function(){
          refrescar();
@@ -17,6 +18,7 @@ $( document).ready(function(){
         $('#modificar').hide();
         $('#eliminar').hide();
         $('#presentacion').hide();
+         limpiarCampos();
     });
     $('#update').click(function(){
         cargarListas();
@@ -25,6 +27,7 @@ $( document).ready(function(){
         $('#insertar').hide();
         $('#eliminar').hide();
         $('#presentacion').hide();
+        limpiarCampos();
     });
     $('#delete').click(function(){
         refrescar();
@@ -34,6 +37,7 @@ $( document).ready(function(){
         $('#leer').hide();
         $('#modificar').hide();
         $('#presentacion').hide();
+        limpiarCampos();
     });
     
     $("#enviarInsert").click(function(){
@@ -97,6 +101,19 @@ function cargarListas(){
         }
     ;});
 }
-  
+
+function limpiarCampos(){
+
+$("#nombre_etnia").val("");
+$("#insertar #resultado").empty();
+
+$("#nombre").val(""); 
+$("#modificar #resultado").empty();
+
+$("#eliminar #resultado1").empty();
+$("#eliminar #resultado2").empty();    
+
+}
+
 
 

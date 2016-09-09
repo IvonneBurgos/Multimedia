@@ -36,7 +36,7 @@
                     <h3>Ingresar nueva Etnia</h3>
                     <br>
                     <label>Nombre:</label><br>
-                    <input id="nombre_etnia" class="form-control" type="text" name="nombre"><br>               
+                    <input id="nombre_etnia" class="form-control" type="text" name="nombre"><br><br>               
                 </div>
             </form>
            
@@ -67,7 +67,7 @@
                     <select id='idModificar'></select><br>
                     <br>
                     <label>Nombre: </label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
+                    <input id="nombre" class="form-control" type="text" name="nombre"><br><br>
                     
                 </div>
             </form>
@@ -95,13 +95,13 @@
                     <label>Eliminar por Nombre:</label><br>
                     <select id='eliminaNombreEtnia'></select><br>
                     <br>
-                    <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
+                    <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
                     <select id='eliminaIdEtnia'></select><br>
                     <br>
-                    <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
+                    <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 
                 </div>
