@@ -90,7 +90,7 @@
 
                 <div class="col-md-2 col-sm-12 col-xs-12">
                 <p>Grupo Sanguíneo</p>
-                <a href="#" class="icono"><i class="fa fa-tint fa-4x"></i></a>
+                <a href="vista/vista_grupo_sanguineo.php" class="icono"><i class="fa fa-tint fa-4x"></i></a>
             </div>   
             
           
@@ -103,7 +103,7 @@
                 </div>     
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Nivel Instrucción</p>
-                    <a href="#" class="icono"><i class="fa fa-graduation-cap fa-4x"></i></a>
+                    <a href="vista/vista_nivel_instruccion.php" class="icono"><i class="fa fa-graduation-cap fa-4x"></i></a>
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Especialidad</p>

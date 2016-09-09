@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css"/>     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/script_etnia.js"></script>
+  <script src="../js/script_nivel_instruccion.js"></script>
   
 </head>
 <body>
@@ -33,10 +33,10 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nueva Etnia</h3>
+                    <h3>Ingresar nuevo Nivel de Instrucción</h3>
                     <br>
                     <label>Nombre:</label><br>
-                    <input id="nombre_etnia" class="form-control" type="text" name="nombre"><br>               
+                    <input id="nombre_nivel_instruccion" class="form-control" type="text" name="nombre"><br>               
                 </div>
             </form>
            
@@ -50,7 +50,7 @@
         </div>
         
         <div id="leer">
-            <h3>Lista de Etnias</h3>
+            <h3>Lista de Niveles de Instrucción</h3>
             <div class="refresh">
                 <p>Espere un momento...</p>
             </div>   
@@ -60,7 +60,7 @@
             
             <form>
                 <div class="form-group">   
-                    <h3>Modificar una Etnia</h3>
+                    <h3>Modificar un Nivel de Instrucción</h3>
                     <br>
                     <label>Id:</label><br>
                     <select id='idModificar'></select><br>
@@ -80,7 +80,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Etnia</h3>
+                <h3>Eliminar Nivel de Instrucción</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">
@@ -91,13 +91,13 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreEtnia'></select><br>
+                    <select id='eliminaNombreNivelInstruccion'></select><br>
                     <br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdEtnia'></select><br>
+                    <select id='eliminaIdNivelInstruccion'></select><br>
                     <br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
