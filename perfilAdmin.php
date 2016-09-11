@@ -76,7 +76,7 @@
 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Estado Civil</p>
-                    <a href="#" class="icono"><i class="fa fa-venus-mars fa-4x"></i></a>
+                    <a href="vista/vista_estado_civil.php" class="icono"><i class="fa fa-venus-mars fa-4x"></i></a>
                 </div>     
 
                 <div class="col-md-2 col-sm-6 col-xs-6">
