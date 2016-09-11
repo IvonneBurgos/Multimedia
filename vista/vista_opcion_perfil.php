@@ -33,7 +33,7 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nuevo Perfil</h3>
+                    <h3>Ingresar nueva Opción por Perfil</h3>
                     <br>
                     <label>Nombre de Perfil:</label><br>
                     <select id='ingresarPerfil' class="form-control"></select><br>
@@ -50,7 +50,7 @@
         </div>
         
         <div id="presentacion">
-            <h1>Panel de Administración de Opciones</h1>
+            <h1>Panel de Administración de Opciones por Perfil</h1>
         </div>
         
         <div id="leer">
@@ -90,7 +90,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Opción</h3>
+                <h3>Eliminar Opción por Perfil</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">
