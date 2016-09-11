@@ -36,9 +36,9 @@
                     <h3>Ingresar nuevo Perfil</h3>
                     <br>
                     <label>Nombre de Perfil:</label><br>
-                    <select id='ingresarPerfil'></select><br>
+                    <select id='ingresarPerfil' class="form-control"></select><br>
                     <label>Nombre de Opción:</label><br>
-                    <select id='ingresarOpcion'></select>
+                    <select id='ingresarOpcion' class="form-control"></select>
                
                 </div>
             </form>
@@ -64,18 +64,18 @@
             
             <form>
                 <div class="form-group">   
-                    <h3>Modificar una Opción</h3>
-                    <br>
-                    <label>Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
-                    <label>Nombre : </label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url"><br>
-                    <label>Estado:</label><br>
-                    <select id="estadoModificar" class="form-control">
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
+                    <h3>Modificar una Opción por Perfil</h3>
+                        <br>
+                        <label>Id:</label><br>
+                        <input id="id" class="form-control" type="text" name="id"><br>
+                        <label>Nombre Perfil:</label><br>
+                        <select id='modificaNombrePerfil'class="form-control"></select><br>
+                        <label>Nombre Opción : </label><br>
+                        <select id='modificaNombreOpcion' class="form-control"></select><br>
+                        <label>Estado:</label><br>
+                        <select id="estadoModificar" class="form-control">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
                     </select>
                 </div>
             </form>
@@ -99,14 +99,9 @@
                 </div>
 
                 <div class="col-sm-5 text-left"> 
-
-                    <label>Eliminar por Nombre:</label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
-                    <div id="resultado1"></div><br><br>
-
+                    
                     <label>Eliminar por Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='eliminaIdOpcion' class="form-control"></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 

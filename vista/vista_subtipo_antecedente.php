@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css"/>     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/script_paciente.js"></script>
+  <script src="../js/script_subtipo_antecedente.js"></script>
   
 </head>
 <body>
@@ -33,13 +33,10 @@
             
             <form>
                 <div class="form-group">    
-                    <h3>Ingresar nuevo Paciente</h3>
+                    <h3>Ingresar nuevo Subtipo Antecedente</h3>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url">
-               
                 </div>
             </form>
            
@@ -50,11 +47,11 @@
         </div>
         
         <div id="presentacion">
-            <h1>Panel de Administración de Pacientes</h1>
+            <h1>Panel de Administración de Subtipos Antecedente</h1>
         </div>
         
         <div id="leer">
-            <h3>Lista de Pacientes</h3>
+            <h3>Lista de Especialidades</h3>
             <div class="refresh">
                 <p>Espere un momento...</p>
             </div>   
@@ -64,14 +61,12 @@
             
             <form>
                 <div class="form-group">   
-                    <h3>Modificar una Pacientes</h3>
+                    <h3>Modificar Subtipo Antecedente</h3>
                     <br>
                     <label>Id:</label><br>
                     <select id='idModificar' class="form-control"></select><br>
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url"><br>
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
@@ -90,7 +85,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Paciente</h3>
+                <h3>Eliminar Subtipo Antecedente</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">
@@ -136,6 +131,7 @@
         <div class="logo">
         <p><a href="#"><img src= "../images/logo.png" width="100%"/></a></p>
       </div>
+        
     </div>
   </div>
 </div>

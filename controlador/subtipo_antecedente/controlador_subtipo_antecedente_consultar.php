@@ -8,14 +8,12 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $err = $client->getError();
         if ($err) {	echo 'Error en Constructor' . $err ; } 
         //pasando parametros de entrada que seran pasados hacia el metodo
-       
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['perfil','opcion','url'];
+        $arregloCampos = ['id','nombre','estado'];
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('listaOpcionPerfil');
-
+        $resultado = $client->call('listaSubtipoAntecedente');
         
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
@@ -35,17 +33,18 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 	if ($err) {		// Muestra el error
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
-        for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
+      // echo $resultado;
+            for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
             $linea = (explode("@",$resultado)[$x]);
             $pila =[];
-            for ($z = 0; $z < (sizeof(explode("#",$linea))-2); $z++){
+            for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
                 $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
             }
             array_push($pilamaster,$pila);
         }
         $pilasuperior['listaopciones']=$pilamaster;
-        echo json_encode($pilasuperior);
-        
-	}
+            echo json_encode($pilasuperior);
+        }
+	
 }
         ?>

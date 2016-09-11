@@ -89,7 +89,7 @@ function refrescar(){
     }
     else
     {
-        $(".refresh").html('no hay datos que presentar');
+        $(".refresh").html('No hay especialidades agregadas');
     }
 });}
 

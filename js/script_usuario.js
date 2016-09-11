@@ -3,8 +3,7 @@ $(document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
     cargarListas();
-    $('#insert').click(function(){
-     
+    $('#insert').click(function(){  
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -18,8 +17,7 @@ $(document).ready(function(){
         $('#modificar').hide();
         $('#eliminar').hide();
         $('#presentacion').hide();
-    });
-    
+    });   
     $('#update').click(function(){
         refrescar();
         $('#modificar').show();
@@ -27,8 +25,7 @@ $(document).ready(function(){
         $('#insertar').hide();
         $('#eliminar').hide();
         $('#presentacion').hide();
-    });
-    
+    });   
     $('#delete').click(function(){
         refrescar();
         $('#eliminar').show();
@@ -71,16 +68,11 @@ $(document).ready(function(){
           cargarListas();
         $("#eliminar #resultado1").empty();
     });
-    
-    /*$('#enviarInsert').click(function(){
-   $('#insertar #resultado').append("<div><?php include( 'controlador/controlador_opcion.php' ); ?></div>");
-});*/  
 });
 
 
 function refrescar(){
     $.post("../controlador/usuario/controlador_usuario_consultar.php", function(resp){
-   //console.log(resp);
         var parse = JSON.parse(resp);   
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             if (x==0){

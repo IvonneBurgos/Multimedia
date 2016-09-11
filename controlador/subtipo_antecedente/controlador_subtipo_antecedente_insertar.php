@@ -1,4 +1,3 @@
-
     <?php
     require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
     //url del webservice que invocaremos
@@ -12,7 +11,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarOpcionPerfil', array('nombre_perfil'=> $_POST['nombre_perfil'], 'nombre_opcion' => $_POST['nombre_opcion']));
+        $resultado = $client->call('agregarSubtipoAntecedente', array('nombre'=> $_POST['nombre']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
@@ -32,10 +31,9 @@
             if ($err) {		// Muestra el error
                 echo 'Error' . $err ;
             } else {		// Muestra el resultado
+
+               // $resultadoFinal = $resultado;
             print_r ($resultado);
             }
         }
-
-    
     ?>
-
