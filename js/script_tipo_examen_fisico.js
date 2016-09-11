@@ -4,7 +4,8 @@ $( document).ready(function(){
     $('#presentacion').show();
      cargarListas();
     $('#insert').click(function(){
-     
+        $("#resultado").html('');
+        $("#insertar #nombre").html('');
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -21,6 +22,7 @@ $( document).ready(function(){
     });
     $('#update').click(function(){
         cargarListas();
+        $("#modificar #nombre").html('');
         $('#modificar').show();
         $('#leer').hide();
         $('#insertar').hide();
@@ -39,30 +41,16 @@ $( document).ready(function(){
         $('#presentacion').hide();
     });
     
-    //Para escoger la persona
-    
- /*   $( "#idModificar" ).change(function() {
-    var str = "";
-    $( "idModificar option:selected" ).each(function(){
-        $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
-            str += $( this ).text() + " ";
-            $("#insertar #resultado").html(resp);
-    	});
-      
-    });
-    $( "div" ).text( str );
-  })
-  .trigger( "change" );*/
-    
     $("#enviarInsert").click(function(){
-    $.post("../controlador/paciente/controlador_paciente_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
-        $("#insertar #resultado").html(resp);
-    });
+        
+        $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_insertar.php",{nombre: $('#insertar #nombre').val()}, function(resp){
+   $("#insertar #resultado").html(resp);
+    	});
         
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/paciente/controlador_paciente_modificar.php",{}, function(resp){
+        $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
@@ -70,7 +58,7 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
         $("#eliminar #resultado1").html('');
         $("#eliminar #resultado2").html('');
-         $.post("../controlador/paciente/controlador_paciente_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
@@ -80,7 +68,7 @@ $( document).ready(function(){
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -90,23 +78,22 @@ $( document).ready(function(){
 
 
 function refrescar(){
-    $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
+    $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_consultar.php", function(resp){
     var parse = JSON.parse(resp);
-        var save = parse.listaopciones[0].length;
-        if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
-            for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            if (x==0){
-                $(".refresh").html('');
-            }
-            $(".refresh").append('<div class="col-md-10">'+ parse.lista[x] + parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
+    if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined)
+    {
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+        if (x==0){
+            $(".refresh").html('');
         }
+            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
         }
-        else{
-                $(".refresh").html('No hay Pacientes agregados');
-            }
-        
-       });
-}
+    }
+    else
+    {
+        $(".refresh").html('No hay tipos de examenes fisicos agregados');
+    }
+});}
 
 function cargarListas(){
       //Limpia los select
@@ -117,12 +104,15 @@ function cargarListas(){
     $('#idModificar')
     .empty();
       //Llama al servicio de las opciones y llena un select con ellas
-    $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
+    $.post("../controlador/tipo_examen_fisico/controlador_tipo_examen_fisico_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
              $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
-        }
-    ;});
+        }});
 }
+
+  
+
+

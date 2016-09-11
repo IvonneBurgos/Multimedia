@@ -1,4 +1,4 @@
-    <?php
+<?php
     require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
     //url del webservice que invocaremos
     $wsdl="http://appmedica.publidimas.com/sw/vista/servicio_web.php?wsdl";
@@ -11,7 +11,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarPaciente', array('id_persona'=> $_POST['persona'], 'id_grupo_sanguineo' => $_POST['sangre']));
+        $resultado = $client->call('modificaTipoExamenFisico', array('id_tipo_exm_fisico'=> intval($_POST['id']), 'nombre'=> $_POST['nombre'],'estado'=>$_POST['estado']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si

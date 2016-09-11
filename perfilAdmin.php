@@ -135,11 +135,11 @@
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Examen Físico</p>
                     <a href="vista/vista_examen_fisico.php" class="icono"><i class="fa fa-child fa-4x"></i></a>
-                </div>     
-                <div class="col-md-2 col-sm-6 col-xs-6">
-                    <p>Examen de Laboratorio</p>
-                    <a href="#" class="icono"><i class="fa fa-wpforms fa-4x"></i></a>
-                </div>     
+                </div>    
+               <div class="col-md-2 col-sm-6 col-xs-6">
+                    <p>Tipo Examen Físico</p>
+                    <a href="vista/vista_tipo_examen_fisico.php" class="icono"><i class="fa fa-child fa-4x"></i></a>
+                </div>        
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Tipo Examen de Laboratorio</p>
                     <a href="#" class="icono"><i class="fa fa-wpforms fa-4x"></i></a>
