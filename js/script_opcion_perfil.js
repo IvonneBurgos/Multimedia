@@ -36,7 +36,8 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_insertar.php",{nombre_perfil: $('#ingresarPerfil option:selected').text(), nombre_opcion: $('#ingresarOpcion option:selected').text()}, function(resp){
+         $("#insertar #resultado").html('');
+        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_insertar.php",{nombre_perfil: $('#ingresarPerfil option:selected').val(), nombre_opcion: $('#ingresarOpcion option:selected').val()}, function(resp){
         $("#insertar #resultado").html(resp);
     	});
         
