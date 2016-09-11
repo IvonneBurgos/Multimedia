@@ -81,7 +81,7 @@
 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Ciudad</p>
-                    <a href="#" class="icono"><i class="fa fa-street-view fa-4x"></i></a>
+                    <a href="vista/vista_ciudad.php" class="icono"><i class="fa fa-street-view fa-4x"></i></a>
                 </div>         
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Provincia</p>
