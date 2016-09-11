@@ -122,11 +122,11 @@
             <h3>Información Médica</h3>
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Enfermedad</p>
-                    <a href="#" class="icono"><i class="fa fa-wheelchair fa-4x"></i></a>
+                    <a href="vista/vista_enfermedad.php" class="icono"><i class="fa fa-wheelchair fa-4x"></i></a>
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Tipo Diagnóstico</p>
-                    <a href="#" class="icono"><i class="fa fa-stethoscope fa-4x"></i></a>
+                    <a href="vista/vista_tipo_diagnostico.php" class="icono"><i class="fa fa-stethoscope fa-4x"></i></a>
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Tipo Tratamiento</p>
@@ -166,7 +166,7 @@
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Composición</p>
-                    <a href="#" class="icono"><i class="fa fa-stethoscope fa-4x"></i></a>
+                    <a href="vista/vista_composicion.php" class="icono"><i class="fa fa-stethoscope fa-4x"></i></a>
                 </div>        
        </div>
     </div>
