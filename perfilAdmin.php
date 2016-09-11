@@ -130,7 +130,7 @@
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Tipo Tratamiento</p>
-                    <a href="#" class="icono"><i class="fa fa-folder-open fa-4x"></i></a>
+                    <a href="vista/vista_tipo_tratamiento.php" class="icono"><i class="fa fa-folder-open fa-4x"></i></a>
                 </div>     
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Examen Físico</p>
