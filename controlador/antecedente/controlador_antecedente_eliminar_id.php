@@ -11,7 +11,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('eliminaCiudad', array('id_ciudad'=> $_POST['id']));
+        $resultado = $client->call('eliminaAntecedente', array('id_antecedente'=> $_POST['id']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si

@@ -35,11 +35,14 @@
                 <div class="form-group">    
                     <h3>Ingresar nuevo Antecedente</h3>
                     <br>
-                    <label>Provincia:</label><br>
-                    <select id='nombre_provincia_ciudad'></select><br>
-                    <br>
                     <label>Nombre:</label><br>
-                    <input id="nombre_ciudad" class="form-control" type="text" name="nombre">
+                    <input id="nombre_antecedente" class="form-control" type="text" name="nombre"><br>
+                    <br>
+                    <label>Tipo Antecedente:</label><br>
+                    <select id='nombre_tipo_antecedente_modificar'></select><br>
+                    <br>
+                    <label>Subtipo Antecedente:</label><br>
+                    <select id='nombre_subtipo_antecedente_modificar'></select><br>
                 </div>
             </form>
            
@@ -108,15 +111,15 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreProvincia'></select><br>
+                    Tipo <select id='eliminaNombreAntecedenteTipo'></select><br>
                     <br>
-                    <select id='eliminaNombreCiudad'></select><br>
+                    Subtipo <select id='eliminaNombreAntecedenteSubtipo'></select><br>
                     <br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdCiudad'></select><br>
+                    <select id='eliminaIdAntecedente'></select><br>
                     <br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
