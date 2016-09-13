@@ -146,7 +146,7 @@
                 </div>     
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Subtipo Examen de Laboratorio</p>
-                    <a href="#" class="icono"><i class="fa fa-file-text-o fa-4x"></i></a>
+                    <a href="vista/vista_subtipo_examen_laboratorio.php" class="icono"><i class="fa fa-file-text-o fa-4x"></i></a>
                 </div>          
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Tipo Antecedente</p>
