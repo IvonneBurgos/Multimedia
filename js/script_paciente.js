@@ -55,7 +55,7 @@ $( document).ready(function(){
   .trigger( "change" );*/
     
     $("#enviarInsert").click(function(){
-    $.post("../controlador/paciente/controlador_paciente_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
+    $.post("../controlador/paciente/controlador_paciente_insertar.php",{persona:$('#idPersona option:selected').val(), sangre:$('#idSangre option:selected').val()}, function(resp){
         $("#insertar #resultado").html(resp);
     });
         
@@ -98,7 +98,7 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.lista[x] + parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>');
+            $(".refresh").append('<div class="col-md-10">'+ parse.lista[x] + parse.listaopciones[x].id + " "+ parse.listaopciones[x].id_persona+'</div>');
         }
         }
         else{
@@ -116,6 +116,10 @@ function cargarListas(){
     .empty();
     $('#idModificar')
     .empty();
+    $('#idSangre')
+    .empty();
+    $('#modificaidSangre')
+    .empty();
       //Llama al servicio de las opciones y llena un select con ellas
     $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
         var parse = JSON.parse(resp);
@@ -123,6 +127,14 @@ function cargarListas(){
             $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
              $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+        }
+    ;});
+    
+     $.post("../controlador/grupo_sanguineo/controlador_grupo_sanguineo_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+             $("#idSangre").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].nombre+' </option>');
+            $("#modificaidSangre").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
 }
