@@ -71,8 +71,15 @@ $(document).ready(function(){
 
 function refrescar(){
     $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
-   $(".refresh").html(resp);});
-}
+        var parse = JSON.parse(resp);   
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            if (x==0){
+                $(".refresh").html('');
+            }
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre + " "+ parse.listaopciones[x].apellido + " " +parse.listaopciones[x].fecha_nacimiento + " " +parse.listaopciones[x].genero + " " +parse.listaopciones[x].ocupacion + " " +parse.listaopciones[x].correo + " " +parse.listaopciones[x].num_hijos + " " +parse.listaopciones[x].usuario + " " +parse.listaopciones[x].ciudad + " " +parse.listaopciones[x].nivel_instruccion + " " +parse.listaopciones[x].religion + " " +parse.listaopciones[x].estado_civil + " " +parse.listaopciones[x].etnia +'</div>');
+        };
+    });
+};
 
 function cargarListas(){
     $('#ingresarUsuario')
