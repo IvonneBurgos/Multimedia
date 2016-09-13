@@ -158,7 +158,7 @@
                 </div>    
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Antecedente</p>
-                    <a href="#" class="icono"><i class="fa fa-tags fa-4x"></i></a>
+                    <a href="vista/vista_antecedente.php" class="icono"><i class="fa fa-tags fa-4x"></i></a>
                 </div>       
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Etiqueta Antecedente</p>
