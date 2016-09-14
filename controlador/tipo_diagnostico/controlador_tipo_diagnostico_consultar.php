@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','nombre'];
+        $arregloCampos = ['id','nombre', 'estado'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaTipoDiagnostico');
         
@@ -45,4 +45,5 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         echo json_encode($pilasuperior);
 	}
 }
+/*(sizeof(explode("#",$linea))-1)*/
         ?>
