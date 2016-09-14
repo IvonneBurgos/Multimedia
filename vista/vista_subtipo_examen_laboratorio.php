@@ -8,7 +8,7 @@
  <link rel="stylesheet" href="../css/style.css" type="text/css"/>     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="../js/script_subtipo_examen_laboratorio.js"></script>
+  <script src="../js/script_subtipo_examen_lab.js"></script>
   
 </head>
 <body>
@@ -69,7 +69,7 @@
                     <select id='idModificar'></select><br>
                     <br>
                     <label>Id Tipo Examen de Laboratorio:</label><br>
-                    <select id='id_tipo_examen_laboratorio'></select><br>
+                    <select id='id_tipo_examen_laboratorio_modificar'></select><br>
                     <br>
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>

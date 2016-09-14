@@ -12,7 +12,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarEnfermedad', array('nombre'=> $_POST['nombre_enfermedad']));
+        $resultado = $client->call('agregarSubtipoExamenLaboratorio', array('id_examen_lab'=> intval($_POST['id']), 'nombre'=> $_POST['nombre_subtipo_examen_laboratorio']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si

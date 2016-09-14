@@ -13,7 +13,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pilasuperior = [];
         $arregloCampos = ['id','nombre'];
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('listaEnfermedad');
+        $resultado = $client->call('listaSubtipoExamenLaboratorio');
         
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si

@@ -1,4 +1,4 @@
-$( document).ready(function(){ 
+$(document).ready(function(){ 
     $('#contenedor > div').hide();
     $('#presentacion').show();
      cargarListas();
@@ -41,19 +41,20 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/enfermedad/controlador_enfermedad_insertar.php",{nombre_enfermedad: $('#insertar #nombre_enfermedad').val()}, function(resp){
+        $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_insertar.php",{id: $("#id_tipo_examen_laboratorio option:selected").text(),        nombre_subtipo_examen_laboratorio: $('#nombre_subtipo_examen_laboratorio').val()}, function(resp){
    $("#insertar #resultado").html(resp);
     	});
+     
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/enfermedad/controlador_enfermedad_modificar.php",{id: $('#idModificar option:selected').text(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_modificar.php",{id: $('#idModificar option:selected').text(), id_examen_lab: $('#id_tipo_examen_laboratorio_modificar option:selected').text(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});    
 });
     
     $("#enviarNombre").click(function(){
-         $.post("../controlador/enfermedad/controlador_enfermedad_eliminar_nombre.php",{nombre: $('#eliminaNombreEnfermedad option:selected').text()}, function(resp){
+         $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_nombre.php",{nombre: $('#eliminaNombreSubtipoExamenLaboratorio option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
@@ -61,7 +62,7 @@ $( document).ready(function(){
 });
     
       $("#enviarId").click(function(){
-         $.post("../controlador/enfermedad/controlador_enfermedad_eliminar_id.php",{id: $('#eliminaIdEnfermedad option:selected').text()}, function(resp){
+         $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_id.php",{id: $('#eliminaIdSubtipoExamenLaboratorio option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -70,7 +71,7 @@ $( document).ready(function(){
 });
 
 function refrescar(){
-    $.post("../controlador/enfermedad/controlador_enfermedad_consultar.php", function(resp){
+    $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_consultar.php", function(resp){
     var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             if (x==0){
@@ -83,26 +84,36 @@ function refrescar(){
 
 function cargarListas(){
       //Limpia los select
-    $('#eliminaNombreEnfermedad')
+    $('#eliminaNombreSubtipoExamenLaboratorio')
     .empty();
-    $('#eliminaIdEnfermedad')
+    $('#eliminaIdSubtipoExamenLaboratorio')
     .empty();
     $('#idModificar')
     .empty();
       //Llama al servicio de las opciones y llena un select con ellas
-    $.post("../controlador/enfermedad/controlador_enfermedad_consultar.php", function(resp){
+    $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#eliminaIdEnfermedad").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            $("#eliminaIdSubtipoExamenLaboratorio").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
-             $("#eliminaNombreEnfermedad").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+             $("#eliminaNombreSubtipoExamenLaboratorio").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
+    
+    $.post("../controlador/tipo_examen_laboratorio/controlador_tipo_examen_laboratorio_consultar.php", function(resp2){
+        var parse2 = JSON.parse(resp2);
+        for(var y=0; y < (parse2.listaopciones.length-1); y++){
+            
+            $("#id_tipo_examen_laboratorio").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].id+' </option>');
+            $("#id_tipo_examen_laboratorio_modificar").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].id+' </option>');
+        };
+        
+    });
 }
 
 function limpiarCampos(){
 
-$("#nombre_enfermedad").val("");
+$("#nombre_subtipo_examen_laboratorio").val("");
 $("#insertar #resultado").empty();
 
 $("#nombre").val(""); 
