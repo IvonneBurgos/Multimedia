@@ -62,7 +62,7 @@ $(document).ready(function(){
 });
     
       $("#enviarId").click(function(){
-         $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_id.php",{id: $('#eliminaIdSubtipoExamenLaboratorio option:selected').text()}, function(resp){
+         $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_id.php",{id: $('#eliminaIdSubtipoExamenLaboratorio option:selected').val()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -77,7 +77,7 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre+ '</div>')
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].tipo + " "+ parse.listaopciones[x].subtipo + '</div>')
         }
        ;});
 }
@@ -90,13 +90,20 @@ function cargarListas(){
     .empty();
     $('#idModificar')
     .empty();
+    
+    $('#id_tipo_examen_laboratorio')
+    .empty();
+    $('#id_tipo_examen_laboratorio_modificar')
+    .empty();
+    
       //Llama al servicio de las opciones y llena un select con ellas
     $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdSubtipoExamenLaboratorio").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            
             $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
-             $("#eliminaNombreSubtipoExamenLaboratorio").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+             $("#eliminaNombreSubtipoExamenLaboratorio").append( '<option value="'+parse.listaopciones[x].subtipo+ '">'+parse.listaopciones[x].subtipo+' </option>');
         }
     ;});
     

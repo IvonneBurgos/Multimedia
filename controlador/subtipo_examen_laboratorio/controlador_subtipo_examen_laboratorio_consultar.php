@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','nombre'];
+        $arregloCampos = ['id','tipo','subtipo','estado'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaSubtipoExamenLaboratorio');
         
