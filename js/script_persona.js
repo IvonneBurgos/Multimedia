@@ -44,7 +44,7 @@ $(document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/persona/controlador_persona_modificar.php",{id: $('#id').val(), nombre: $('#modificar #nombre').val(), url: $('#modificar #url').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/persona/controlador_persona_modificar.php",{id: $('#id').val(), cedula: $('#modificar #cedula').val(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
@@ -76,7 +76,7 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].nombre + " "+ parse.listaopciones[x].apellido + " " +parse.listaopciones[x].fecha_nacimiento + " " +parse.listaopciones[x].genero + " " +parse.listaopciones[x].ocupacion + " " +parse.listaopciones[x].correo + " " +parse.listaopciones[x].num_hijos + " " +parse.listaopciones[x].usuario + " " +parse.listaopciones[x].ciudad + " " +parse.listaopciones[x].nivel_instruccion + " " +parse.listaopciones[x].religion + " " +parse.listaopciones[x].estado_civil + " " +parse.listaopciones[x].etnia +'</div>');
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " " +parse.listaopciones[x].cedula + " " + parse.listaopciones[x].nombre + " " + parse.listaopciones[x].apellido + " " + parse.listaopciones[x].fecha_nacimiento + " " + parse.listaopciones[x].genero + " " + parse.listaopciones[x].ocupacion + " " + parse.listaopciones[x].correo + " " + parse.listaopciones[x].num_hijos + " " + parse.listaopciones[x].ciudad + " " + parse.listaopciones[x].provincia + " " + parse.listaopciones[x].nivel_instruccion + " " + parse.listaopciones[x].religion + " " + parse.listaopciones[x].estado_civil + " " + " " + parse.listaopciones[x].etnia + '</div>');
         };
     });
 };

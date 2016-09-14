@@ -11,10 +11,10 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','cedula','nombre','apellido','fecha_nacimiento','genero','ocupacion','correo','num_hijos','usuario','ciudad','nivel_instruccion','religion','estado_civil','etnia'];
+        $arregloCampos = ['id','cedula','nombre','apellido','fecha_nacimiento','genero','ocupacion','correo','num_hijos','ciudad','provincia','nivel_instruccion','religion','estado_civil','etnia'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaPersona');
-        echo $resultado;
+        //echo $resultado;
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
             $error = $client->getError();
@@ -34,10 +34,10 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
         //echo $resultado;
-        for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
-            $linea = (explode("@",$resultado)[$x]);
+        for ($x = 0; $x < sizeof(explode("$",$resultado)); $x++){
+            $linea = (explode("$",$resultado)[$x]);
             $pila =[];
-            for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
+            for ($z = 0; $z < (sizeof(explode("#",$linea))-15); $z++){
                 $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
             };
             array_push($pilamaster,$pila);
