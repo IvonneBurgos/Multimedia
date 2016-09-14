@@ -110,8 +110,8 @@
                     <a href="vista/vista_especialidad.php" class="icono"> <i class="fa fa-heartbeat fa-4x"></i></a>
                 </div> 
                 <div class="col-md-2 col-sm-6 col-xs-6">
-                    <p>Instituto</p>
-                    <a href="#" class="icono"> <i class="fa fa-hospital-o fa-4x"></i></a>
+                    <p>Instituto Salud</p>
+                    <a href="vista/vista_instituto_salud.php" class="icono"> <i class="fa fa-hospital-o fa-4x"></i></a>
                 </div>       
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <p>Empleado por Instituto</p>
