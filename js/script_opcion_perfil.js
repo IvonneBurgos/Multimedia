@@ -44,14 +44,14 @@ $( document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_modificar.php",{id: $('#idModificar option:selected').text(), id_opcion: $('#modificaNombrePerfil option:selected').val(), id_perfil: $('#modificaNombrePerfil option:selected').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_modificar.php",{id: $('#modificaId option:selected').val(), id_opcion: $('#modificaNombrePerfil option:selected').val(), id_perfil: $('#modificaNombrePerfil option:selected').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado").html(resp);
         });
     });
     
       $("#enviarId").click(function(){
         $("#eliminar #resultado2").html('');
-        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
+        $.post("../controlador/opcion_perfil/controlador_opcion_perfil_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').val()}, function(resp){
             $("#eliminar #resultado2").html(resp);
         });
             refrescar();
@@ -70,7 +70,7 @@ function refrescar(){
             if (x==0){
                 $(".refresh").html('');
             }
-            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].perfil + " " +parse.listaopciones[x].opcion + '</div>');
+            $(".refresh").append('<div class="col-md-10">'+ parse.listaopciones[x].id + " "+ parse.listaopciones[x].perfil + " " +parse.listaopciones[x].opcion + '</div>');
         }
        }
          else
@@ -88,6 +88,11 @@ function cargarListas(){
     .empty();
     $('#modificaNombrePerfil')
     .empty();
+    $('#modificaId')
+    .empty();
+    eliminaIdOpcion
+     $('#eliminaIdOpcion')
+    .empty();
       //Llama al servicio de los perfiles y llena un select con ellas
     $.post("../controlador/perfil/controlador_perfil_consultar.php", function(resp){
         var parse = JSON.parse(resp);
@@ -104,6 +109,14 @@ function cargarListas(){
             $("#modificaNombreOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     });
+    
+     $.post("../controlador/opcion_perfil/controlador_opcion_perfil_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+         $("#modificaId").append( '<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');
+         $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');  
+        }
+    ;});
 }
 
   

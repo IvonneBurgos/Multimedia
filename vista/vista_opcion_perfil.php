@@ -67,7 +67,7 @@
                     <h3>Modificar una Opción por Perfil</h3>
                         <br>
                         <label>Id:</label><br>
-                        <input id="id" class="form-control" type="text" name="id"><br>
+                        <select id='modificaId'class="form-control"></select><br>
                         <label>Nombre Perfil:</label><br>
                         <select id='modificaNombrePerfil'class="form-control"></select><br>
                         <label>Nombre Opción : </label><br>

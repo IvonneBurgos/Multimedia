@@ -13,7 +13,7 @@ function modificaOpcionPerfilNew($id_opcion_perfil,$id_opcion,$id_perfil, $estad
         return "Se Modifico la Opcion Perfil exitosamente";
     }
 }
-function agregarOpcionPerfilNew($nombre_perfil,$nombre_opcion)
+function agregarOpcionPerfilNew($nombre_opcion,$nombre_perfil)
 {
     $db = new conexion();
 
@@ -21,16 +21,16 @@ function agregarOpcionPerfilNew($nombre_perfil,$nombre_opcion)
 
     $total_reg = $db->consulta($sql2);
     $fila = mysql_fetch_array($total_reg,MYSQL_NUM);
-    $id_opcion=$fila[0];
+    $id_perfil=$fila[0];
 
     $sql3 = "select id from opcion where nombre = '$nombre_opcion'";
 
     $total_reg1 = $db->consulta($sql3);
     $fila1 = mysql_fetch_array($total_reg1,MYSQL_NUM);
-    $id_perfil=$fila1[0];
+    $id_opcion=$fila1[0];
 
     $sql = "INSERT INTO opcion_perfil(id_perfil,id_opcion,estado)";
-    $sql.=" VALUES('$id_perfil','$id_opcion','Activo')";
+    $sql.=" VALUES('$id_opcion','$id_perfil','Activo')";
     if ($db->consulta($sql) == 0) {
         return "No se Guardo la Opcion Perfil";
     } else

@@ -12,9 +12,9 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['perfil','opcion','url'];
+        $arregloCampos = ['id','opcion','perfil','estado'];
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('listaOpcionPerfil');
+        $resultado = $client->call('listaOpcionPerfilNew');
 
         
         //¿ocurrio error al llamar al web service?
