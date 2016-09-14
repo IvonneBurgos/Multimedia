@@ -62,7 +62,7 @@ function agregarEmpleadoNuevo ($id_persona,$id_especialidad,$id_nivel_instruccio
 function modificaEmpleadoNuevo($id_empleado,$id_especialidad,$id_nivel_instruccion, $estado) {
     $sql ="update empleado ";
     $sql.="set";
-    $sql.=" id_especialidad=$id_especialidad,id_nivel_instruccion=$id_nivel_instruccion, estado='$estado'";
+    $sql.=" id_especialidad='$id_especialidad',id_nivel_instruccion='$id_nivel_instruccion', estado='$estado'";
     $sql.=" where id=$id_empleado";
 
     $db = new conexion();
@@ -80,7 +80,6 @@ function eliminaEmpleadoNuevo($id_empleado) {
     $sql.=" estado='Inactivo'";
     $sql.=" where id=$id_empleado";
 
-
     $db = new conexion();
     if ($db->consulta($sql) == 0) {
         return "No se Elimino el Empleado";
@@ -90,33 +89,7 @@ function eliminaEmpleadoNuevo($id_empleado) {
 }
 
 
-
-$server->register("listaEmpleadoNueva", array(),
-            array('Respuesta' => 'xsd:string'), $ns);
-
-
-$server->register("agregarEmpleadoNuevo", array(
-'id_persona' => 'xsd:int',
-'id_especialidad' => 'xsd:int',
-'id_nivel_instruccion' => 'xsd:int',
-), array('Respuesta' => 'xsd:string'), $ns);
-
-
-$server->register("modificaEmpleadoNuevo", array(
-'id_empleado' => 'xsd:int',
-'id_especialidad' => 'xsd:int',
-'id_nivel_instruccion' => 'xsd:int',
-'estado' => 'xsd:string',
-), array('Respuesta' => 'xsd:string'), $ns);
-
-
-$server->register("eliminaEmpleadoNuevo", array(
-'id_empleado' => 'xsd:int',
-), array('Respuesta' => 'xsd:string'), $ns);
-
-//--------------------------------------En shc.php-------------------------//
-
-
+//---EMPLEADO INSTITUTO-//
 
 function listaEmpleadoInstitutoNueva() {
 
@@ -152,6 +125,32 @@ function listaEmpleadoInstitutoNueva() {
         return "No hay datos por mostrar";
     }
 }
+
+
+//---VISTA - archivo: servicio_web-//
+
+$server->register("listaEmpleadoNueva", array(),
+            array('Respuesta' => 'xsd:string'), $ns);
+
+
+$server->register("agregarEmpleadoNuevo", array(
+'id_persona' => 'xsd:int',
+'id_especialidad' => 'xsd:int',
+'id_nivel_instruccion' => 'xsd:int',
+), array('Respuesta' => 'xsd:string'), $ns);
+
+
+$server->register("modificaEmpleadoNuevo", array(
+'id_empleado' => 'xsd:int',
+'id_especialidad' => 'xsd:int',
+'id_nivel_instruccion' => 'xsd:int',
+'estado' => 'xsd:string',
+), array('Respuesta' => 'xsd:string'), $ns);
+
+
+$server->register("eliminaEmpleadoNuevo", array(
+'id_empleado' => 'xsd:int',
+), array('Respuesta' => 'xsd:string'), $ns);
 
 
 $server->register("listaEmpleadoInstitutoNueva", array(),
