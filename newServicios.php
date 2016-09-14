@@ -127,10 +127,10 @@ function listaEtiquetaAntecedenteNew(){
 
         $datos.= $filas[2];
         $datos.="#";
-        
+
         $datos.= $filas[3];
         $datos.="#"; 
-        
+
         $datos.="@";
     }
 
@@ -139,16 +139,12 @@ function listaEtiquetaAntecedenteNew(){
     } else {
         return "No hay datos por mostrar";
     }
-    
 }
-
-
-
 //--------------------------------------En servicio_web.php-------------------------//
 //Agregar Opcion Perfil
 $server->register("agregarOpcionPerfilNew", array(
-'nombre_perfil' => 'xsd:string',
 'nombre_opcion' => 'xsd:string',
+'nombre_perfil' => 'xsd:string',
 ), array('Respuesta' => 'xsd:string'), $ns);
 
 //Modifica Opcion Perfil  

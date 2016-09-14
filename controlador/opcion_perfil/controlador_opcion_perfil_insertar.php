@@ -12,7 +12,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarOpcionPerfilNew', array('nombre_perfil'=> $_POST['nombre_perfil'], 'nombre_opcion' => $_POST['nombre_opcion']));
+        $resultado = $client->call('agregarOpcionPerfilNew', array('nombre_opcion'=> $_POST['nombre_opcion'], 'nombre_perfil' => $_POST['nombre_perfil']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
@@ -32,7 +32,7 @@
             if ($err) {		// Muestra el error
                 echo 'Error' . $err ;
             } else {		// Muestra el resultado
-            print_r ($resultado ."+".$_POST['nombre_perfil']."+".$_POST['nombre_opcion']);
+            print_r ($resultado);
             }
         }
 
