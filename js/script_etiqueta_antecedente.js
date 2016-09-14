@@ -22,6 +22,7 @@ $( document).ready(function(){
     });
     $('#update').click(function(){
         cargarListas();
+        $('#modificar #resultado').html('');
         $("#modificar #nombre").html('');
         $('#modificar').show();
         $('#leer').hide();
@@ -50,6 +51,8 @@ $( document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
+        
+        $("#modificar #resultado").html('');
         $.post("../controlador/etiqueta_antecedente/controlador_etiqueta_antecedente_modificar.php",{id_et_antecedente: $('#idModificar option:selected').val(), id_antecedente: $('#idModificarAntecedente option:selected').val(),  nombre:$('#modificar #nombre_etiqueta_antecedente').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
@@ -57,7 +60,7 @@ $( document).ready(function(){
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');
-         $.post("../controlador/examen_fisico/controlador_examen_fisico_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/etiqueta_antecedente/controlador_etiqueta_antecedente_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
     	});
           refrescar();
@@ -75,7 +78,7 @@ function refrescar(){
         if (x==0){
             $(".refresh").html('');
         }
-            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].tipo_examen+ '</div>');
+            $(".refresh").append('<div class="col-md-10">'+parse.listaopciones[x].id + " "+ parse.listaopciones[x].antecedente+  " "+ parse.listaopciones[x].nombre + '</div>');
         }
     }
     else

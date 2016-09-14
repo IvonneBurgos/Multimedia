@@ -34,7 +34,8 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
       //(sizeof(explode("#",$linea))-1)
-        echo $resultado;
+        //echo $resultado;
+        //(sizeof(explode("#",$linea))-1)
             for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
             $linea = (explode("@",$resultado)[$x]);
             $pila =[];
