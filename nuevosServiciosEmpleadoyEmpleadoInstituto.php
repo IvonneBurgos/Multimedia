@@ -9,7 +9,9 @@ include($path.'/sw/db/Conexion.class.php');
 
 function listaEmpleadoNueva() {
 
-    $sql = "select * from empleado where estado='Activo'";
+    $sql ="select e.id,p.nombre,p.apellido,es.nombre,t.telefono_fijo,t.telefono_movil,p.correo";
+    $sql.=" from empleado e,persona p,telefono t,especialidad es";
+    $sql.=" where e.id_persona=p.id and e.id_especialidad=es.id and t.id_persona=p.id";
 
     $db = new conexion();
     $resul = $db->consulta($sql);
@@ -35,7 +37,13 @@ function listaEmpleadoNueva() {
         $datos.= $filas[4];
         $datos.="#";
 
-        $datos.="@";
+        $datos.= $filas[5];
+        $datos.="#";
+
+        $datos.= $filas[6];
+        $datos.="#";
+
+        $datos.="$";
     }
 
     if ($num != 0) {

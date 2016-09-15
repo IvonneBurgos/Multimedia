@@ -99,7 +99,7 @@
             <h3>Empleado</h3>
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Empleado</p>
-                    <a href="#" class="icono"><i class="fa fa-user-md fa-4x"></i></a>
+                    <a href="vista/vista_empleado.php" class="icono"><i class="fa fa-user-md fa-4x"></i></a>
                 </div>     
                 <div class="col-md-2 col-sm-6 col-xs-6">
                     <p>Nivel Instrucción</p>
