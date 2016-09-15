@@ -62,14 +62,18 @@ $(document).ready(function(){
     });
     
     $("#enviarCedula").click(function(){
-        $.post("../controlador/opcion/controlador_persona_eliminar_nombre.php",{nombre: $('#eliminar #nombre').val()}, function(resp){
+        $("#eliminar #resultado1").empty();
+        $("#eliminar #resultado2").empty();
+        $.post("../controlador/persona/controlador_persona_eliminar_cedula.php",{cedula: $('#eliminar #eliminarCedula').val()}, function(resp){
             $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
     });
     
     $("#enviarId").click(function(){
-        $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminar #id').val()}, function(resp){
+        $("#eliminar #resultado1").empty();
+        $("#eliminar #resultado2").empty();
+        $.post("../controlador/persona/controlador_persona_eliminar_id.php",{id: $('#eliminar #eliminarId').val()}, function(resp){
             $("#eliminar #resultado2").html(resp);
     	});
         refrescar();
@@ -93,12 +97,15 @@ function refrescar(){
 function cargarListas(){
     $('#modificarId, #modificarUsuario, #modificarCiudadNacimiento, #modificarNivelInstruccion, #modificarReligion, #modificarEstadoCivil, #modificarEtnia').empty();
     $('#insertarUsuario, #insertarCiudadNacimiento, #insertarNivelInstruccion, #insertarReligion, #insertarEstadoCivil, #insertarEtnia').empty();
+    $('#eliminarId, #eliminarCedula').empty();
 
       //Llama al servicio de las tablas y llena un select con ellas
     $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#modificarId").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].id+' </option>');     
+            $("#modificarId").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].id+' </option>');
+            $("#eliminarId").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].id+' </option>'); 
+            $("#eliminarCedula").append( '<option value="'+parse.listaopciones[x].cedula + '">'+parse.listaopciones[x].cedula+' </option>'); 
         }
     ;});
 

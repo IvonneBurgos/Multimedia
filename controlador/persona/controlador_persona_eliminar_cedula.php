@@ -8,8 +8,6 @@
     if ($err) {	echo 'Error en Constructor' . $err ; } 
     //pasando parametros de entrada que seran pasados hacia el metodo
 
-   
-
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('eliminaPersonaPorCedula', array('cedula'=> $_POST['cedula']));
 
