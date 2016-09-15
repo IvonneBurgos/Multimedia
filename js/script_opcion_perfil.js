@@ -1,5 +1,4 @@
 $( document).ready(function(){
-     cargarListas();
     $('#contenedor > div').hide();
     $('#presentacion').show();
     

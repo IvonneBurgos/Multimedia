@@ -2,9 +2,7 @@ $( document).ready(function(){
     
     $('#contenedor > div').hide();
     $('#presentacion').show();
-     cargarListas();
-    $('#insert').click(function(){
-     
+    $('#insert').click(function(){   
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -96,8 +94,6 @@ function refrescar(){
 
 function cargarListas(){
       //Limpia los select
-    $('#eliminaNombreOpcion')
-    .empty();
     $('#eliminaIdOpcion')
     .empty();
     $('#idModificar')

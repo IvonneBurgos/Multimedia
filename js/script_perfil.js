@@ -1,7 +1,6 @@
 $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
-    cargarListas();
     $('#insert').click(function(){
          
         $('#insertar').show();

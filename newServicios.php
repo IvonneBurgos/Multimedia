@@ -140,6 +140,22 @@ function listaEtiquetaAntecedenteNew(){
         return "No hay datos por mostrar";
     }
 }
+
+
+function eliminaDireccionNew($id_direccion) {
+
+    $sql = "update direccion ";
+    $sql.= "set";
+    $sql.= " estado='Inactivo'";
+    $sql.=" where id=$id_direccion";
+
+    $db = new conexion();
+    if ($db->consulta($sql) == 0) {
+        return "No se Elimino el Direccion";
+    }else{
+        return "Se Elimino el Direccion exitosamente";
+    }
+}
 //--------------------------------------En servicio_web.php-------------------------//
 //Agregar Opcion Perfil
 $server->register("agregarOpcionPerfilNew", array(
@@ -164,6 +180,8 @@ $server->register("listaPacienteNew", array(),
 //Lista Opcion Perfil
 $server->register("listaOpcionPerfilNew", array(),
             array('Respuesta' => 'xsd:string'), $ns);
-
-
+//Elimina Dirección
+$server->register("eliminaDireccionNew", array(
+'id_direccion' => 'xsd:string',
+), array('Respuesta' => 'xsd:string'), $ns);
 ?>
