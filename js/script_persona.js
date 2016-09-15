@@ -2,9 +2,8 @@ $(document).ready(function(){
     
     $('#contenedor > div').hide();
     $('#presentacion').show();
-    
     $('#insert').click(function(){
-     
+        cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -12,7 +11,7 @@ $(document).ready(function(){
         $('#presentacion').hide();
     });
      $('#read').click(function(){
-         refrescar();
+        refrescar();
         $('#leer').show();
         $('#insertar').hide();
         $('#modificar').hide();
@@ -20,7 +19,8 @@ $(document).ready(function(){
         $('#presentacion').hide();
     });
     $('#update').click(function(){
-       
+        cargarListas();
+        refrescar();
         $('#modificar').show();
         $('#leer').hide();
         $('#insertar').hide();
@@ -28,6 +28,7 @@ $(document).ready(function(){
         $('#presentacion').hide();
     });
     $('#delete').click(function(){
+        cargarListas();
         refrescar();
         $('#eliminar').show();
         $('#insertar').hide();
@@ -37,35 +38,43 @@ $(document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/persona/controlador_persona_insertar.php",{nombre: $('#insertar #nombre').val(), url: $('#insertar #url').val()}, function(resp){
-   $("#insertar #resultado").html(resp);
+        $("#insertar #resultado").empty();
+        $.post("../controlador/persona/controlador_persona_insertar.php",{cedula: $('#insertar #cedula').val(), nombre: $('#insertar #nombre').val(),
+         apellido: $('#insertar #apellido').val(), fecha_nacimiento: $('#insertar #fecha_nacimiento').val(), genero: $('#insertar #genero option:selected').text(),
+          ocupacion: $('#insertar #ocupacion').val(), correo: $('#insertar #correo').val(), num_hijos: $('#insertar #numero_hijos').val(), usuario: $('#insertarUsuario').val(),
+          ciudad: $('#insertarCiudadNacimiento').val(), nivel_instruccion: $('#insertarNivelInstruccion').val(), religion: $('#insertarReligion').val(),
+          estado_civil: $('#insertarEstadoCivil').val(), etnia: $('#insertarEtnia').val()}, function(resp){
+            $("#insertar #resultado").html(resp);
+            refrescar();
     	});
         
-});
-    
+    });
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/persona/controlador_persona_modificar.php",{id: $('#id').val(), cedula: $('#modificar #cedula').val(), nombre: $('#modificar #nombre').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
-   $("#modificar #resultado").html(resp);
+        $("#modificar #resultado").empty();
+        $.post("../controlador/persona/controlador_persona_modificar.php",{id: $('#modificarId').val(), cedula: $('#modificar #cedula').val(), nombre: $('#modificar #nombre').val(),
+         apellido: $('#modificar #apellido').val(), fecha_nacimiento: $('#modificar #fecha_nacimiento').val(), genero: $('#modificar #genero option:selected').text(),
+          ocupacion: $('#modificar #ocupacion').val(), correo: $('#modificar #correo').val(), num_hijos: $('#modificar #numero_hijos').val(), usuario: $('#modificarUsuario').val(),
+          ciudad: $('#modificarCiudadNacimiento').val(), nivel_instruccion: $('#modificarNivelInstruccion').val(), religion: $('#modificarReligion').val(),
+          estado_civil: $('#modificarEstadoCivil').val(), etnia: $('#modificarEtnia').val()}, function(resp){
+            $("#modificar #resultado").html(resp);
+            refrescar();
     	});
-});
+    });
     
-    /*$("#enviarNombre").click(function(){
-         $.post("../controlador/opcion/controlador_persona_eliminar_nombre.php",{nombre: $('#eliminar #nombre').val()}, function(resp){
-   $("#eliminar #resultado1").html(resp);
+    $("#enviarCedula").click(function(){
+        $.post("../controlador/opcion/controlador_persona_eliminar_nombre.php",{nombre: $('#eliminar #nombre').val()}, function(resp){
+            $("#eliminar #resultado1").html(resp);
+    	});
+        refrescar();
+    });
+    
+    $("#enviarId").click(function(){
+        $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminar #id').val()}, function(resp){
+            $("#eliminar #resultado2").html(resp);
     	});
         refrescar();
 });
-    
-      $("#enviarId").click(function(){
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminar #id').val()}, function(resp){
-   $("#eliminar #resultado2").html(resp);
-    	});
-          refrescar();
-});*/
-    
-    /*$('#enviarInsert').click(function(){
-   $('#insertar #resultado').append("<div><?php include( 'controlador/controlador_opcion.php' ); ?></div>");
-});*/  
+     
 });
 
 
@@ -82,60 +91,64 @@ function refrescar(){
 };
 
 function cargarListas(){
-    $('#ingresarUsuario')
-    .empty();
-    $('#ingresarCiudadNacimiento')
-    .empty();
-    $('#ingresarNivelInstruccion')
-    .empty();
-    $('#ingresarReligion')
-    .empty();
-    $('#ingresarEstadoCivil')
-    .empty();
-    $('#ingresarEtnia')
-    .empty();
-      //Llama al servicio de los usuarios y llena un select con ellas
+    $('#modificarId, #modificarUsuario, #modificarCiudadNacimiento, #modificarNivelInstruccion, #modificarReligion, #modificarEstadoCivil, #modificarEtnia').empty();
+    $('#insertarUsuario, #insertarCiudadNacimiento, #insertarNivelInstruccion, #insertarReligion, #insertarEstadoCivil, #insertarEtnia').empty();
+
+      //Llama al servicio de las tablas y llena un select con ellas
+    $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#modificarId").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].id+' </option>');     
+        }
+    ;});
+
     $.post("../controlador/usuario/controlador_usuario_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarUsuario").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+            $("#modificarUsuario").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre+' </option>');
+            $("#insertarUsuario").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
-    //Llama al servicio de las Ciudades de Nacimiento y llena un select con ellas
-    $.post("../controlador/ciudad_nacimiento/controlador_ciudad_nacimiento_consultar.php", function(resp){
+
+    $.post("../controlador/ciudad/controlador_ciudad_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarCiudadNacimiento").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+           $("#modificarCiudadNacimiento").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
+           $("#insertarCiudadNacimiento").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
         }
-    });
-    //Llama al servicio de los Niveles de Instruccion y llena un select con ellas
+    ;});
+
     $.post("../controlador/nivel_instruccion/controlador_nivel_instruccion_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarNivelInstruccion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+           $("#modificarNivelInstruccion").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
+           $("#insertarNivelInstruccion").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
         }
-    });
-    //Llama al servicio de las religiones y llena un select con ellas
+    ;});
+
     $.post("../controlador/religion/controlador_religion_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarReligion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+           $("#modificarReligion").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
+           $("#insertarReligion").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
         }
-    });
-    //Llama al servicio de los estados civiles y llena un select con ellas
+    ;});
+
     $.post("../controlador/estado_civil/controlador_estado_civil_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarEstadoCivil").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+           $("#modificarEstadoCivil").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
+           $("#insertarEstadoCivil").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
         }
-    });
-    //Llama al servicio de las etnias y llena un select con ellas
+    ;});
+
     $.post("../controlador/etnia/controlador_etnia_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#ingresarEtnia").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+           $("#modificarEtnia").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
+           $("#insertarEtnia").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre +' </option>');
         }
-    });
+    ;});
 }
   
 

@@ -37,7 +37,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         for ($x = 0; $x < sizeof(explode("$",$resultado)); $x++){
             $linea = (explode("$",$resultado)[$x]);
             $pila =[];
-            for ($z = 0; $z < (sizeof(explode("#",$linea))-15); $z++){
+            for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
                 $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
             };
             array_push($pilamaster,$pila);

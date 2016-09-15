@@ -10,7 +10,7 @@
 
         //llamando al metodo y recuperando el array de productos en una variable
         //echo $_POST['idprovincia'];
-        $resultado = $client->call('modificaPersona', array('id_persona'=> $_POST['id'], 'cedula'=> $_POST['cedula'], 'nombre'=> $_POST['nombre'], 'apellido'=> $_POST['apellido'], 'fecha_nac'=> $_POST['fecha_nacimiento'], 'genero' => $_POST['genero'], 'ocupacion' => $_POST['ocupacion'], 'correo' => $_POST['correo'], 'num_hijos' => $_POST['num_hijos'], 'id_usuario' => $_POST['usuario'],'id_ciudad' => $_POST['ciudad'], 'id_nivel_instruccion' => $_POST['nivel_instruccion'], 'id_religion' => $_POST['religion'], 'id_estado_civil' => $_POST['estado_civil'], 'id_etnia' => $_POST['etnia']));
+        $resultado = $client->call('modificaPersona', array('id_persona'=> $_POST['id'], 'cedula'=> $_POST['cedula'], 'nombre'=> $_POST['nombre'], 'apellido'=> $_POST['apellido'], 'fecha_nac'=> $_POST['fecha_nacimiento'], 'genero' => $_POST['genero'], 'ocupacion' => $_POST['ocupacion'], 'correo' => $_POST['correo'], 'num_hijos' => $_POST['num_hijos'], 'id_usuario' => $_POST['usuario'],'id_ciudad_nacimiento' => $_POST['ciudad'], 'id_nivel_instruccion' => $_POST['nivel_instruccion'], 'id_religion' => $_POST['religion'], 'id_estado_civil' => $_POST['estado_civil'], 'id_etnia' => $_POST['etnia']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si

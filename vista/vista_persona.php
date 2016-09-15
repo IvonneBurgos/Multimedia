@@ -36,33 +36,36 @@
                     <h3>Ingresar nueva Persona</h3>
                     <br>
                     <label>Cédula:</label><br>
-                    <input id="cedula" class="form-control" type="text" name="nombre"><br>
+                    <input id="cedula" class="form-control" type="text" name="cedula"><br>
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     <label>Apellido:</label><br>
-                    <input id="apellido" class="form-control" type="text" name="nombre"><br>
+                    <input id="apellido" class="form-control" type="text" name="apellido"><br>
                     <label>Fecha de Nacimiento:</label><br>
-                    <input id="fechaNacimiento" class="form-control" type="date" name="nombre"><br>
+                    <input id="fecha_nacimiento" class="form-control" type="date" name="fecha_nacimiento"><br>
                     <label>Género:</label><br>
-                    <input id="genero" class="form-control" type="text" name="nombre"><br>
+                    <select id="genero" class="form-control">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    </select><br>
                     <label>Ocupación:</label><br>
-                    <input id="ocupacion" class="form-control" type="text" name="nombre"><br>
+                    <input id="ocupacion" class="form-control" type="text" name="ocupacion"><br>
                     <label>Correo:</label><br>
-                    <input id="correo" class="form-control" type="email" name="nombre"><br>
+                    <input id="correo" class="form-control" type="text" name="correo"><br>
                     <label>Número de Hijos:</label><br>
-                    <input id="numeroHijos" class="form-control" type="number" name="nombre"><br>
+                    <input id="numero_hijos" class="form-control" type="number" name="numero_hijos"><br>
                     <label>Usuario:</label><br>
-                    <select id='ingresarUsuario'></select><br>
+                    <select id='insertarUsuario'></select><br>
                     <label>Ciudad Nacimiento:</label><br>
-                    <select id='ingresarCiudadNacimiento'></select><br>
+                    <select id='insertarCiudadNacimiento'></select><br>
                     <label>Nivel Instrucción:</label><br>
-                    <select id='ingresarNivelInstruccion'></select><br>
+                    <select id='insertarNivelInstruccion'></select><br>
                     <label>Religión:</label><br>
-                    <select id='ingresarReligion'></select><br>
+                    <select id='insertarReligion'></select><br>
                     <label>Estado Civil:</label><br>
-                    <select id='ingresarEstadoCivil'></select><br>
+                    <select id='insertarEstadoCivil'></select><br>
                     <label>Etnia:</label><br>
-                    <select id='ingresarEtnia'></select>
+                    <select id='insertarEtnia'></select><br>
                 </div>
             </form>
            
@@ -90,16 +93,39 @@
                     <h3>Modificar una Persona</h3>
                     <br>
                     <label>Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
-                    <label>Nombre: </label><br>
+                    <select id="modificarId" type="text" name="id"></select><br>
+                    <label>Cédula:</label><br>
+                    <input id="cedula" class="form-control" type="text" name="cedula"><br>
+                    <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <label>Url:</label><br>
-                    <input id="url" class="form-control" type="text" name="url"><br>
-                    <label>Estado:</label><br>
-                    <select id="estadoModificar" class="form-control">
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
+                    <label>Apellido:</label><br>
+                    <input id="apellido" class="form-control" type="text" name="apellido"><br>
+                    <label>Fecha de Nacimiento:</label><br>
+                    <input id="fecha_nacimiento" class="form-control" type="date" name="fecha_nacimiento"><br>
+                    <label>Género:</label><br>
+                    <br>
+                    <select id="genero" class="form-control">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
                     </select>
+                    <label>Ocupación:</label><br>
+                    <input id="ocupacion" class="form-control" type="text" name="ocupacion"><br>
+                    <label>Correo:</label><br>
+                    <input id="correo" class="form-control" type="text" name="correo"><br>
+                    <label>Número de Hijos:</label><br>
+                    <input id="numero_hijos" class="form-control" type="number" name="numero_hijos"><br>
+                    <label>Usuario:</label><br>
+                    <select id='modificarUsuario'></select><br>
+                    <label>Ciudad Nacimiento:</label><br>
+                    <select id='modificarCiudadNacimiento'></select><br>
+                    <label>Nivel Instrucción:</label><br>
+                    <select id='modificarNivelInstruccion'></select><br>
+                    <label>Religión:</label><br>
+                    <select id='modificarReligion'></select><br>
+                    <label>Estado Civil:</label><br>
+                    <select id='modificarEstadoCivil'></select><br>
+                    <label>Etnia:</label><br>
+                    <select id='modificarEtnia'></select><br>
                 </div>
             </form>
             
@@ -123,13 +149,13 @@
 
                 <div class="col-sm-5 text-left"> 
 
-                    <label>Eliminar por Nombre:</label><br>
-                    <input id="nombre" class="form-control" type="text" name="nombre"><br>
-                    <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
+                    <label>Eliminar por Cédula:</label><br>
+                    <select id='eliminarCedula'></select><br>
+                    <input id="enviarCedula" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <input id="id" class="form-control" type="text" name="id"><br>
+                    <select id='eliminarId'></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 
