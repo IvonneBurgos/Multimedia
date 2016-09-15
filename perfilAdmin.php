@@ -115,7 +115,7 @@
                 </div>       
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <p>Empleado por Instituto</p>
-                    <a href="#" class="icono"><i class="fa fa-medkit fa-4x"></i></a>
+                    <a href="vista/vista_empleado_instituto.php" class="icono"><i class="fa fa-medkit fa-4x"></i></a>
                 </div> 
        </div>
         <div class="col-md-12">
