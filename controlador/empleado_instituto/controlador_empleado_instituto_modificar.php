@@ -33,7 +33,7 @@
             } else {		// Muestra el resultado
 
                // $resultadoFinal = $resultado;
-            print_r ($resultado . $_POST['ruc'] . $_POST['razon_social'] . $_POST['nombre'] . $_POST['direccion'] .$_POST['estado']);
+            print_r ($resultado);
             }
         }
     ?>

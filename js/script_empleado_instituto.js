@@ -54,12 +54,13 @@ $(document).ready(function(){
 });
     
     $("#enviarNombre").click(function(){
-         $.post("../controlador/empleado_instituto/controlador_empleado_instituto_eliminar_nombre.php",{id: $('#eliminaNombreInstituto option:selected').val()}, function(resp){
+         $.post("../controlador/empleado/controlador_empleado_eliminar_nombre.php",{nombre: $('#eliminaNombreEmpleado option:selected').val(), apellido: $('#eliminaApellidoEmpleado option:selected').val(), especialidad: $('#eliminaEspecialidadEmpleado option:selected').val(), instituto: $('#eliminaNombreInstituto option:selected').val()}, function(resp){
    $("#eliminar #resultado1").html(resp);
     	});
         refrescar();
         cargarListas();
 });
+    
     
       $("#enviarId").click(function(){
          $.post("../controlador/empleado_instituto/controlador_empleado_instituto_eliminar_id.php",{id: $('#eliminaIdEmpleadoInstituto option:selected').val()}, function(resp){
@@ -91,9 +92,23 @@ function cargarListas(){
     $('#idModificar')
     .empty();
     
+    $('#eliminaNombreEmpleado')
+    .empty();
+    $('#eliminaApellidoEmpleado')
+    .empty();
+    $('#eliminaEspecialidadEmpleado')
+    .empty();
+    $('#eliminaNombreInstituto')
+    .empty();
+    
     $('#id_instituto_salud')
     .empty();
     $('#id_instituto_salud_modificar')
+    .empty();
+    
+    $('#id_empleado')
+    .empty();
+    $('#id_empleado_modificar')
     .empty();
     
       //Llama al servicio de las opciones y llena un select con ellas
@@ -115,8 +130,33 @@ function cargarListas(){
             $("#id_instituto_salud").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre+' </option>');
             
             $("#id_instituto_salud_modificar").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre+' </option>');
+            
+            $("#eliminaNombreInstituto").append( '<option value="'+parse.listaopciones[x].nombre + '">'+ parse.listaopciones[x].nombre+ ' </option>');
         };
         
+    });
+    
+    $.post("../controlador/empleado/controlador_empleado_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0; x < (parse.listaopciones.length-1); x++){
+            
+            $("#id_empleado").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre + " " + parse.listaopciones[x].apellido +' </option>');
+            
+            $("#id_empleado_modificar").append( '<option value="'+parse.listaopciones[x].id + '">'+parse.listaopciones[x].nombre + " " + parse.listaopciones[x].apellido +' </option>');
+            
+            $("#eliminaNombreEmpleado").append( '<option value="'+parse.listaopciones[x].nombre + '">'+  parse.listaopciones[x].nombre +' </option>');
+            
+            $("#eliminaApellidoEmpleado").append( '<option value="'+parse.listaopciones[x].apellido + '">'+  parse.listaopciones[x].apellido +' </option>');
+        };
+        
+    });
+    
+    $.post("../controlador/especialidad/controlador_especialidad_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0; x < (parse.listaopciones.length-1); x++){
+            
+            $("#eliminaEspecialidadEmpleado").append( '<option value="'+parse.listaopciones[x].nombre + '">'+ parse.listaopciones[x].nombre+ ' </option>');
+        };    
     });
 }
 

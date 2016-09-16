@@ -35,12 +35,10 @@
                 <div class="form-group">    
                     <h3>Ingresar nuevo Empleado por Instituto</h3>
                     <br>
-                    <label>Id Instituto Salud:</label><br>
-                    <select id='id_instituto_salud'></select><br>
-                    <br>  
-                    <label>Id Empleado:</label><br>
-                    <select id='id_empleado'></select><br>
-                    <br>              
+                    <label>Instituto Salud:</label><br>
+                    <select id='id_instituto_salud' class="form-control"></select><br>
+                    <label>Empleado:</label><br>
+                    <select id='id_empleado' class="form-control"></select><br>             
                 </div>
             </form>
            
@@ -67,19 +65,16 @@
                     <h3>Modificar un Empleado por Instituto</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
-                    <br>                    
-                    <label>Id Instituto Salud:</label><br>
-                    <select id='id_instituto_salud_modificar'></select><br>
-                    <br>  
-                    <label>Id Empleado:</label><br>
-                    <select id='id_empleado_modificar'></select><br>
-                    <br>              
+                    <select id='idModificar' class="form-control"></select><br>                    
+                    <label>Instituto Salud:</label><br>
+                    <select id='id_instituto_salud_modificar' class="form-control"></select><br>
+                    <label>Empleado:</label><br>
+                    <select id='id_empleado_modificar' class="form-control"></select><br>          
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
-                    </select>
+                    </select><br>
                 </div>
             </form>
             
@@ -102,15 +97,23 @@
 
                 <div class="col-sm-5 text-left"> 
 
-                    <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreEmpleadoInstituto'></select><br>
+                    <label>Eliminar por Nombre</label><br>
                     <br>
+                    <label>Nombre:</label><br>
+                    <select id='eliminaNombreEmpleado' class="form-control"></select><br>
+                    <label>Apellido:</label><br>
+                    <select id='eliminaApellidoEmpleado' class="form-control"></select><br>
+                    <label>Especialidad:</label><br>
+                    <select id='eliminaEspecialidadEmpleado' class="form-control"></select><br>
+                    <label>Instituto:</label><br>
+                    <select id='eliminaNombreInstituto' class="form-control"></select><br>
+                    
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdEmpleadoInstituto'></select><br>
-                    <br>
+                    <select id='eliminaIdEmpleadoInstituto' class="form-control"></select><br>
+                    
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 
