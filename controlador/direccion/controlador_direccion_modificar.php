@@ -11,7 +11,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('eliminaDireccionNew', array('id_direccion'=> intval($_POST['id'])));
+        $resultado = $client->call('modificaDireccionNew', array('id_direccion'=> $_POST['id'],'direccion_residencia'=>$_POST['direccion_residencia'],'direccion_trabajo'=>$_POST['direccion_trabajo'],'estado'=>$_POST['estado']));
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
             $error = $client->getError();
@@ -30,8 +30,9 @@
             if ($err) {		// Muestra el error
                 echo 'Error' . $err ;
             } else {		// Muestra el resultado
+
                // $resultadoFinal = $resultado;
-            print_r ($resultado . $_POST['id'] . $_POST['id']);
+            print_r ($resultado . $_POST['id'] . $_POST['direccion_residencia']. $_POST['direccion_trabajo'].$_POST['estado']);
             }
         }
     ?>

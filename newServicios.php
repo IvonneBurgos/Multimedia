@@ -156,6 +156,21 @@ function eliminaDireccionNew($id_direccion) {
         return "Se Elimino el Direccion exitosamente";
     }
 }
+
+function modificaDireccionNew($id_direccion,$direccion_residencia,$direccion_trabajo,$estado) {
+    $sql = "update direccion ";
+    $sql.="set";
+    $sql.= " direccion_residencia='$direccion_residencia', direccion_trabajo='$direccion_trabajo', estado='$estado'";
+    $sql.=" where id=$id_direccion";
+
+    $db = new conexion();
+    if ($db->consulta($sql) == 0) {
+        return "No se Modifico la Direccion";
+    }else{
+        return "Se Modifico la Direccion exitosamente";
+    }
+}
+
 //--------------------------------------En servicio_web.php-------------------------//
 //Agregar Opcion Perfil
 $server->register("agregarOpcionPerfilNew", array(
@@ -182,6 +197,13 @@ $server->register("listaOpcionPerfilNew", array(),
             array('Respuesta' => 'xsd:string'), $ns);
 //Elimina Dirección
 $server->register("eliminaDireccionNew", array(
-'id_direccion' => 'xsd:string',
+'id_direccion' => 'xsd:int',
+), array('Respuesta' => 'xsd:string'), $ns);
+
+//Modifica Direccion
+$server->register("modificaDireccionNew", array(
+'direccion_residencia' => 'xsd:string',
+'direccion_trabajo' => 'xsd:string',
+'estado' => 'xsd:string',
 ), array('Respuesta' => 'xsd:string'), $ns);
 ?>

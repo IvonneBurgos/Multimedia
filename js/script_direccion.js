@@ -51,7 +51,7 @@ $( document).ready(function(){
     $("#enviarUpdate").click(function(){
         
         $("#modificar #resultado").html('');
-        $.post("../controlador/etiqueta_antecedente/controlador_etiqueta_antecedente_modificar.php",{id_persona: $('#idModificar option:selected').val(), id_antecedente: $('#idModificarAntecedente option:selected').val(),  nombre:$('#modificar #nombre_etiqueta_antecedente').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
+        $.post("../controlador/direccion/controlador_direccion_modificar.php",{id: $('#idDireccion option:selected').text(), direccion_residencia:$('#modificar #direccion_residencia').val(), direccion_trabajo:$('#modificar #direccion_trabajo').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
         $("#modificar #resultado").html(resp);
     	});
 });
@@ -63,6 +63,16 @@ $( document).ready(function(){
           refrescar();
           cargarListas();
 });
+    
+    $( "#idDireccion" )
+  .change(function() {
+    var str = "";
+    $( "#idDireccion option:selected" ).each(function() {
+      str += $( this ).val() + " ";
+    });
+    $( "#mod_id_persona" ).text( str );
+  })
+  .trigger( "change" );
 });
 
 
@@ -87,7 +97,8 @@ function refrescar(){
 function cargarListas(){
     $('#idPersona').empty();
     $('#eliminaIdOpcion').empty();
-    
+    $('#idDireccion').empty();
+    $('#mod_id_persona').html('');
     $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
@@ -97,5 +108,8 @@ function cargarListas(){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');
-        }});
+            $("#idDireccion").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'">'+parse.listaopciones[x].id+'</option>');
+        }
+           $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido); 
+    });
 }

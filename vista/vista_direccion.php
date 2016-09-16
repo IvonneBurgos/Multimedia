@@ -69,11 +69,13 @@
                     <h3>Modificar Dirección</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar' class="form-control"></select><br>
-                    <label>Antecedente: </label><br>
-                    <select id='idModificarAntecedente' class="form-control"></select><br>
-                    <label>Nombre</label>
-                    <input id="nombre_etiqueta_antecedente" class="form-control" type="text" name="nombre"><br>      
+                    <select id='idDireccion' class="form-control"></select><br>
+                    <label>Persona:</label><br>
+                    <p id="mod_id_persona"></p><br>
+                    <label>Dirección de Residencia</label>
+                    <input id="direccion_residencia" class="form-control" type="text" name="direccion_residencia"><br> 
+                    <label>Dirección de Trabajo</label>
+                    <input id="direccion_trabajo" class="form-control" type="text" name="direccion_trabajo"><br> 
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
