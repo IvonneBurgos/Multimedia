@@ -9,7 +9,7 @@
     //pasando parametros de entrada que seran pasados hacia el metodo
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('eliminaEmpleado', array('id_empleado'=> $_POST['id']));
+        $resultado = $client->call('eliminaEmpleadoPorNombre', array('nombre'=> $_POST['nombre'], 'apellido'=> $_POST['apellido'], 'especialidad'=> $_POST['especialidad']));
 
 
         //¿ocurrio error al llamar al web service?

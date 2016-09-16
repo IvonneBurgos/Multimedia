@@ -12,7 +12,7 @@
    
 
         //llamando al metodo y recuperando el array de productos en una variable
-        $resultado = $client->call('agregarEmpleado', array('id_persona'=> $_POST['id_persona'], 'id_especialidad'=> $_POST['id_especialidad'], 'id_nivel_instruccion'=> $_POST['id_nivel_instruccion']));
+        $resultado = $client->call('agregarEmpleadoNuevo', array('id_persona'=> $_POST['id_persona'], 'id_especialidad'=> $_POST['id_especialidad'], 'id_nivel_instruccion'=> $_POST['id_nivel_instruccion']));
 
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
@@ -34,7 +34,7 @@
             } else {		// Muestra el resultado
 
                // $resultadoFinal = $resultado;
-            print_r ($resultado . $_POST['id_persona'] . $_POST['id_especialidad'] . $_POST['id_nivel_instruccion']);
+            print_r ($resultado);
             }
         }
 

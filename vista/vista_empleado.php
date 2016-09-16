@@ -78,6 +78,11 @@
                     <label>Id Nivel Instrucción:</label><br>
                     <select id='id_nivel_instruccion_modificar' class="form-control"></select>
                     <br>
+                    <label>Estado:</label><br>
+                    <select id="estadoModificar" class="form-control">
+                    <option value="Activo">Activo</option>
+                    <option value="Inactivo">Inactivo</option>
+                    </select>
                 </div>
             </form>
             
@@ -99,7 +104,19 @@
                 </div>
 
                 <div class="col-sm-5 text-left"> 
-
+                    
+                    <label>Eliminar por Nombre</label><br>
+                    <br>
+                    <label>Nombre:</label><br>
+                    <select id='eliminaNombreEmpleado' class="form-control"></select><br>
+                    <label>Apellido:</label><br>
+                    <select id='eliminaApellidoEmpleado' class="form-control"></select><br>
+                    <label>Especialidad:</label><br>
+                    <select id='eliminaEspecialidadEmpleado' class="form-control"></select><br>
+                    
+                    <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
+                    <div id="resultado1"></div><br><br>
+                    
                     <label>Eliminar por Id:</label><br>
                     <select id='eliminaIdEmpleado' class="form-control"></select>
                     <br>

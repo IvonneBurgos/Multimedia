@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','id_persona','id_especialidad','id_nivel_instruccion', 'estado'];
+        $arregloCampos = ['id','nombre','apellido','especialidad', 'telefono_fijo', 'telefono_movil', 'correo'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaEmpleadoNueva');
         
@@ -33,8 +33,8 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 	if ($err) {		// Muestra el error
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
-        for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
-            $linea = (explode("@",$resultado)[$x]);
+        for ($x = 0; $x < sizeof(explode("$",$resultado)); $x++){
+            $linea = (explode("$",$resultado)[$x]);
             $pila =[];
             for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
                 $pila[$arregloCampos[$z]]= (explode("#",$linea)[$z]);
