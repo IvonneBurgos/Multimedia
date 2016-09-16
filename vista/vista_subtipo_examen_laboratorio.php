@@ -35,9 +35,8 @@
                 <div class="form-group">    
                     <h3>Ingresar nuevo Subtipo Examen de Laboratorio</h3>
                     <br>
-                    <label>Id Tipo Examen de Laboratorio:</label><br>
-                    <select id='id_tipo_examen_laboratorio'></select><br>
-                    <br>
+                    <label>Tipo Examen de Laboratorio:</label><br>
+                    <select id='id_tipo_examen_laboratorio' class="form-control"></select><br>
                     <label>Nombre:</label><br>
                     <input id="nombre_subtipo_examen_laboratorio" class="form-control" type="text" name="nombre"><br>               
                 </div>
@@ -66,18 +65,16 @@
                     <h3>Modificar un Subtipo Examen de Laboratorio</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
-                    <br>
-                    <label>Id Tipo Examen de Laboratorio:</label><br>
-                    <select id='id_tipo_examen_laboratorio_modificar'></select><br>
-                    <br>
+                    <select id='idModificar' class="form-control"></select><br>
+                    <label>Tipo Examen de Laboratorio:</label><br>
+                    <select id='id_tipo_examen_laboratorio_modificar' class="form-control"></select><br>
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
-                    </select>
+                    </select><br>
                 </div>
             </form>
             
@@ -101,14 +98,14 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreSubtipoExamenLaboratorio'></select><br>
-                    <br>
+                    <select id='eliminaNombreSubtipoExamenLaboratorio' class="form-control"></select><br>
+                
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdSubtipoExamenLaboratorio'></select><br>
-                    <br>
+                    <select id='eliminaIdSubtipoExamenLaboratorio' class="form-control"></select><br>
+                    
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 

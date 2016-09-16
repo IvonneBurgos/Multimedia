@@ -111,8 +111,9 @@ function cargarListas(){
         var parse2 = JSON.parse(resp2);
         for(var y=0; y < (parse2.listaopciones.length-1); y++){
             
-            $("#id_tipo_examen_laboratorio").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].id+' </option>');
-            $("#id_tipo_examen_laboratorio_modificar").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].id+' </option>');
+            $("#id_tipo_examen_laboratorio").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].nombre+' </option>');
+            
+            $("#id_tipo_examen_laboratorio_modificar").append( '<option value="'+parse2.listaopciones[y].id + '">'+parse2.listaopciones[y].nombre +' </option>');
         };
         
     });

@@ -46,7 +46,7 @@
         </div>
         
         <div id="presentacion">
-            <h1>Panel de Administración de Opciones</h1>
+            <h1>Panel de Administración de Etnias</h1>
         </div>
         
         <div id="leer">
@@ -63,8 +63,7 @@
                     <h3>Modificar una Etnia</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
-                    <br>
+                    <select id='idModificar' class="form-control"></select><br>
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     
@@ -91,14 +90,14 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreEtnia'></select><br>
-                    <br>
+                    <select id='eliminaNombreEtnia' class="form-control"></select><br>
+                  
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdEtnia'></select><br>
-                    <br>
+                    <select id='eliminaIdEtnia' class="form-control"></select><br>
+                    
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 

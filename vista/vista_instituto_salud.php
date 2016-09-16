@@ -42,8 +42,7 @@
                     <label>Nombre:</label><br>
                     <input id="nombre_instituto" class="form-control" type="text" name="nombre"><br>  
                     <label>Ciudad:</label><br>
-                    <select id='id_ciudad'></select><br>
-                    <br>
+                    <select id='id_ciudad' class="form-control"></select><br>
                     <label>Dirección:</label><br>
                     <input id="direccion_instituto" class="form-control" type="text" name="direccion"><br>               
                 </div>
@@ -72,8 +71,7 @@
                     <h3>Modificar un Instituto Salud</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
-                    <br>                    
+                    <select id='idModificar' class="form-control"></select><br>                   
                     <label>RUC:</label><br>
                     <input id="ruc" class="form-control" type="text" name="ruc"><br>
                     <label>Razón Social:</label><br>
@@ -81,8 +79,7 @@
                     <label>Nombre:</label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>  
                     <label>Ciudad:</label><br>
-                    <select id='id_ciudad_modificar'></select><br>
-                    <br>
+                    <select id='id_ciudad_modificar' class="form-control"></select><br>
                     <label>Dirección:</label><br>
                     <input id="direccion" class="form-control" type="text" name="direccion"><br> 
                     <label>Estado:</label><br>
@@ -90,6 +87,7 @@
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                     </select>
+                    <br>
                 </div>
             </form>
             
@@ -113,14 +111,14 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreInstituto'></select><br>
-                    <br>
+                    <select id='eliminaNombreInstituto' class="form-control"></select><br>
+                    
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdInstituto'></select><br>
-                    <br>
+                    <select id='eliminaIdInstituto' class="form-control"></select><br>
+                   
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 

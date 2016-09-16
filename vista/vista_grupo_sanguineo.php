@@ -46,11 +46,11 @@
         </div>
         
         <div id="presentacion">
-            <h1>Panel de Administración de Opciones</h1>
+            <h1>Panel de Administración de Grupo Sanguíneo</h1>
         </div>
         
         <div id="leer">
-            <h3>Lista de Grupos Sanguíneo</h3>
+            <h3>Lista de Grupos Sanguíneos</h3>
             <div class="refresh">
                 <p>Espere un momento...</p>
             </div>   
@@ -63,8 +63,8 @@
                     <h3>Modificar un Grupo Sanguíneo</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
-                    <br>
+                    <select id='idModificar' class="form-control"></select><br>
+                 
                     <label>Nombre: </label><br>
                     <input id="nombre" class="form-control" type="text" name="nombre"><br>
                     
@@ -91,14 +91,14 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreGrupoSanguineo'></select><br>
-                    <br>
+                    <select id='eliminaNombreGrupoSanguineo' class="form-control"></select><br>
+                    
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdGrupoSanguineo'></select><br>
-                    <br>
+                    <select id='eliminaIdGrupoSanguineo' class="form-control"></select><br>
+                    
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br><br>
                     <div id="resultado2"></div>
                 
