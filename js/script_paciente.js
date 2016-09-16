@@ -3,7 +3,7 @@ $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
     $('#insert').click(function(){
-     
+         cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -40,18 +40,6 @@ $( document).ready(function(){
     
     //Para escoger la persona
     
- /*   $( "#idModificar" ).change(function() {
-    var str = "";
-    $( "idModificar option:selected" ).each(function(){
-        $.post("../controlador/opcion/controlador_opcion_consultar.php", function(resp){
-            str += $( this ).text() + " ";
-            $("#insertar #resultado").html(resp);
-    	});
-      
-    });
-    $( "div" ).text( str );
-  })
-  .trigger( "change" );*/
     
     $("#enviarInsert").click(function(){
     $.post("../controlador/paciente/controlador_paciente_insertar.php",{persona:$('#idPersona option:selected').val(), sangre:$('#idSangre option:selected').val()}, function(resp){
@@ -71,9 +59,10 @@ $( document).ready(function(){
         $("#eliminar #resultado2").html('');
          $.post("../controlador/paciente/controlador_paciente_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
+            refrescar();
+            cargarListas();
     	});
-        refrescar();
-        cargarListas();
+      
 });
     
       $("#enviarId").click(function(){
@@ -81,30 +70,30 @@ $( document).ready(function(){
          $("#eliminar #resultado2").html('');
          $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+            refrescar();
+            cargarListas();
     	});
-          refrescar();
-          cargarListas();
 });
 });
 
 
 function refrescar(){
-    $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
+     $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
     var parse = JSON.parse(resp);
-        var save = parse.listaopciones[0].length;
-        if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined){
-            for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            if (x==0){
-                $(".refresh").html('');
-            }
-            $(".refresh").append('<div class="col-md-10">'+ parse.lista[x] + parse.listaopciones[x].id + " "+ parse.listaopciones[x].id_persona+'</div>');
+    if (parse.listaopciones[0].length > 0 || parse.listaopciones[0].length == undefined)
+    {
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+        if (x==0){
+            $(".refresh").html('');
         }
+            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"  "+parse.listaopciones[x].persona+"  "+parse.listaopciones[x].sangre+'</div>');
         }
-        else{
-                $(".refresh").html('No hay Pacientes agregados');
-            }
-        
-       });
+    }
+    else
+    {
+        $(".refresh").html('No hay Pacientes Agregados');
+    }
+});
 }
 
 function cargarListas(){
@@ -119,6 +108,8 @@ function cargarListas(){
     .empty();
     $('#modificaidSangre')
     .empty();
+    $('#idPersona')
+    .empty();
       //Llama al servicio de las opciones y llena un select con ellas
     $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
         var parse = JSON.parse(resp);
@@ -128,6 +119,12 @@ function cargarListas(){
              $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
         }
     ;});
+    
+     $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+            $("#idPersona").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido+'</option>');
+        }});
     
      $.post("../controlador/grupo_sanguineo/controlador_grupo_sanguineo_consultar.php", function(resp){
         var parse = JSON.parse(resp);

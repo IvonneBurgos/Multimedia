@@ -3,6 +3,7 @@ $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
     $('#insert').click(function(){
+        cargarListas();
         $("#resultado").html('');
         $("#insertar #nombre").html('');
         $('#insertar').show();
@@ -59,9 +60,10 @@ $( document).ready(function(){
          $("#eliminar #resultado2").html('');
          $.post("../controlador/direccion/controlador_direccion_eliminar_id.php",{id:$('#eliminaIdOpcion option:selected').val()}, function(resp){
          $("#eliminar #resultado2").html(resp);
-    	});
           refrescar();
           cargarListas();
+    	});
+          
 });
     
     $( "#idDireccion" )

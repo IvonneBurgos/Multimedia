@@ -73,7 +73,7 @@ function listaOpcionPerfilNew() {
     }
 }
 function listaPacienteNew() {
-    $sql = "select * from paciente where estado='Activo'";
+    $sql = "select * from paciente";
 
     $db = new conexion();
     $resul = $db->consulta($sql);
