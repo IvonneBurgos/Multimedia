@@ -1,9 +1,9 @@
 $( document).ready(function(){ 
     $('#contenedor > div').hide();
     $('#presentacion').show();
-     cargarListas();
-    $('#insert').click(function(){
      
+    $('#insert').click(function(){
+     cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
