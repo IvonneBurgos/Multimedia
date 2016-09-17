@@ -52,9 +52,16 @@ $( document).ready(function(){
     $("#enviarUpdate").click(function(){
         
         $("#modificar #resultado").html('');
-        $.post("../controlador/direccion/controlador_direccion_modificar.php",{id: $('#idDireccion option:selected').text(), direccion_residencia:$('#modificar #direccion_residencia').val(), direccion_trabajo:$('#modificar #direccion_trabajo').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
-        $("#modificar #resultado").html(resp);
-    	});
+        $.post("../controlador/direccion/controlador_direccion_modificar.php",
+               {
+                    id: $('#idDireccion option:selected').text(),
+                    id_persona: $('#idDireccion option:selected').attr('value2'),
+                    direccion_residencia:$('#modificar #direccion_residencia').val(),
+                    direccion_trabajo:$('#modificar #direccion_trabajo').val(), 
+                    estado: $('#estadoModificar option:selected').text()},
+               function(resp){
+                    $("#modificar #resultado").html(resp);
+        });
 });
       $("#enviarId").click(function(){
          $("#eliminar #resultado2").html('');
@@ -62,10 +69,8 @@ $( document).ready(function(){
          $("#eliminar #resultado2").html(resp);
           refrescar();
           cargarListas();
-    	});
-          
+    	});  
 });
-    
     $( "#idDireccion" )
   .change(function() {
     var str = "";
@@ -87,7 +92,7 @@ function refrescar(){
         if (x==0){
             $(".refresh").html('');
         }
-            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"  "+parse.listaopciones[x].cedula+"  "+parse.listaopciones[x].nombre+"   "+parse.listaopciones[x].apellido+"  "+parse.listaopciones[x].direccion_residencia+"   "+ parse.listaopciones[x].direccion_trabajo+'</div>');
+            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"   "+ parse.listaopciones[x].id_persona+"  "+parse.listaopciones[x].cedula+"  "+parse.listaopciones[x].nombre+"   "+parse.listaopciones[x].apellido+"  "+parse.listaopciones[x].direccion_residencia+"   "+ parse.listaopciones[x].direccion_trabajo+'</div>');
         }
     }
     else
@@ -110,8 +115,9 @@ function cargarListas(){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');
-            $("#idDireccion").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'">'+parse.listaopciones[x].id+'</option>');
+            $("#idDireccion").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'" value2="'+ parse.listaopciones[x].id_persona+'">'+parse.listaopciones[x].id+'</option>');
         }
-           $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido); 
+           $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido);  
+           
     });
 }

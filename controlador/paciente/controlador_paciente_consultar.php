@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','id_persona','sangre','estado'];
+        $arregloCampos = ['id','id_persona','sangre'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaPacienteNew');
         
