@@ -2,7 +2,7 @@ $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
     $('#insert').click(function(){
-         
+        cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -51,17 +51,19 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/perfil/controlador_perfil_eliminar_nombre.php",{nombre: $('#eliminaNombrePerfil option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
         cargarListas();
+    	});
+        
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/perfil/controlador_perfil_eliminar_id.php",{id: $('#eliminaIdPerfil option:selected').text()}, function(resp){
-   $("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            refrescar();
+            cargarListas();
     	});
-          refrescar();
-          cargarListas();
+
 });
     
     /*$('#enviarInsert').click(function(){

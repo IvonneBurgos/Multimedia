@@ -54,17 +54,6 @@ $( document).ready(function(){
     	});
 });
     
-   /* $("#enviarNombre").click(function(){
-        $("#eliminar #resultado1").html('');
-        $("#eliminar #resultado2").html('');
-         $.post("../controlador/paciente/controlador_paciente_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
-   $("#eliminar #resultado1").html(resp);
-            refrescar();
-            cargarListas();
-    	});
-      
-});*/
-    
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');

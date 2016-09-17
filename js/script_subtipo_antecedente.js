@@ -3,7 +3,7 @@ $( document).ready(function(){
     $('#contenedor > div').hide();
     $('#presentacion').show();
     $('#insert').click(function(){
-     
+         cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -57,19 +57,21 @@ $( document).ready(function(){
         $("#eliminar #resultado2").html('');
          $.post("../controlador/subtipo_antecedente/controlador_subtipo_antecedente_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
         cargarListas();
+    	});
+        
 });
     
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');
          $.post("../controlador/subtipo_antecedente/controlador_subtipo_antecedente_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
-   $("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            refrescar();
+            cargarListas();
     	});
-          refrescar();
-          cargarListas();
+
 });
 });
 

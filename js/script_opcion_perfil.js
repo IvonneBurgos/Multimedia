@@ -3,6 +3,7 @@ $( document).ready(function(){
     $('#presentacion').show();
     
     $('#insert').click(function(){
+         cargarListas();
         $('#insertar').show();
         $('#leer').hide();
         $('#modificar').hide();
@@ -52,9 +53,10 @@ $( document).ready(function(){
         $("#eliminar #resultado2").html('');
         $.post("../controlador/opcion_perfil/controlador_opcion_perfil_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').val()}, function(resp){
             $("#eliminar #resultado2").html(resp);
-        });
             refrescar();
             cargarListas();
+        });
+
         });
 });
 

@@ -2,8 +2,9 @@ $( document).ready(function(){
     
     $('#contenedor > div').hide();
     $('#presentacion').show();
-     cargarListas();
+     
     $('#insert').click(function(){
+        cargarListas();
         $("#resultado").html('');
         $("#insertar #nombre").html('');
         $('#insertar').show();
@@ -62,9 +63,10 @@ $( document).ready(function(){
          $("#eliminar #resultado2").html('');
          $.post("../controlador/etiqueta_antecedente/controlador_etiqueta_antecedente_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();
     	});
-          refrescar();
-          cargarListas();
+          
 });
 });
 
