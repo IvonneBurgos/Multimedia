@@ -45,5 +45,5 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         echo json_encode($pilasuperior);
 	}
 }
-/*(sizeof(explode("#",$linea))-1)*/
+
         ?>

@@ -33,7 +33,7 @@
             } else {		// Muestra el resultado
 
                // $resultadoFinal = $resultado;
-            print_r ($resultado . $_POST['nombre']);
+            print_r ($resultado);
             }
         }
     ?>
