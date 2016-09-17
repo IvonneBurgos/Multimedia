@@ -43,7 +43,13 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/telefono/controlador_telefono_insertar.php",{id_persona:$('#idPersona option:selected').val(), id_direccion:$('#insertar #id_direccion').val(),telefono_fijo:$('#insertar #telefono_fijo').val(),telefono_movil:$('#insertar #telefono_movil').val()}, function(resp){
+        $.post("../controlador/telefono/controlador_telefono_insertar.php",
+        {
+            id_persona:$('#idPersona option:selected').val(), 
+            id_direccion:$('#idPersona option:selected').attr('value2'),
+            telefono_fijo:$('#insertar #telefono_fijo').val(),
+            telefono_movil:$('#insertar #telefono_movil').val()
+        }, function(resp){
    $("#insertar #resultado").html(resp);
     	});
         
@@ -66,10 +72,14 @@ $( document).ready(function(){
 });
       $("#enviarId").click(function(){
          $("#eliminar #resultado2").html('');
-         $.post("../controlador/telefono/controlador_telefono_eliminar_id.php",{id:$('#eliminaIdOpcion option:selected').val()}, function(resp){
-         $("#eliminar #resultado2").html(resp);
-          refrescar();
-          cargarListas();
+         $.post("../controlador/telefono/controlador_telefono_eliminar_id.php",
+            {
+                id: $('#eliminaIdOpcion option:selected').text()
+            }, 
+            function(resp){
+            $("#eliminar #resultado2").html(resp);
+            refrescar();
+            cargarListas();
     	});  
 });
     $( "#idTelefono" )
@@ -81,8 +91,18 @@ $( document).ready(function(){
     $( "#mod_id_persona" ).text( str );
   })
   .trigger( "change" );
+    
+    
+    $( "#idPersona" )
+  .change(function() {
+   var str2 = "";
+    $( "#idPersona option:selected" ).each(function() {
+      str2 += $( this ).attr('value2') + " ";
+    });
+      $( "#idDireccion" ).text( str2 );
+  })
+  .trigger( "change" );
 });
-
 
 function refrescar(){
     $.post("../controlador/telefono/controlador_telefono_consultar.php", function(resp){
@@ -107,19 +127,22 @@ function cargarListas(){
     $('#eliminaIdOpcion').empty();
     $('#idTelefono').empty();
     $('#mod_id_persona').html('');
-    $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
-        var parse = JSON.parse(resp);
-        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#idPersona").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido+'</option>');
-        }});
     $.post("../controlador/telefono/controlador_telefono_consultar.php",function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');
             $("#idTelefono").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'" value2="'+ parse.listaopciones[x].id_persona+'" value3="'+parse.listaopciones[x].id_direccion+'">'+parse.listaopciones[x].id+'</option>');
-           /* $("#idDireccion").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'" value2="'+ parse.listaopciones[x].id_persona+'">'+parse.listaopciones[x].id+'</option>');*/
         }
            $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido);  
+           
+    });
+    
+     $.post("../controlador/direccion/controlador_direccion_consultar.php",function(resp){
+        var parse = JSON.parse(resp);
+        for(var x=0 ; x < (parse.listaopciones.length-1); x++){
+             $("#idPersona").append('<option value="'+parse.listaopciones[x].id_persona+'" value2="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido+'</option>');
+        }
+           $( "#idDireccion" ).text(parse.listaopciones[0].id);  
            
     });
 }

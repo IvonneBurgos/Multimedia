@@ -33,11 +33,11 @@
                     <label>Persona:</label><br>
                     <select id='idPersona' class="form-control"></select><br>
                     <label>Direccion:</label><br>
-                    <p id='id_direccion'></p><br>
+                    <p id='idDireccion'></p><br>
                     <label>Telefono Fijo</label>
-                    <input id="direccion_residencia" class="form-control" type="text" name="direccion_residencia"><br> 
+                    <input id="telefono_fijo" class="form-control" type="text" name="telefono_fijo"><br> 
                     <label>Telefono Móvil</label>
-                    <input id="direccion_trabajo" class="form-control" type="text" name="direccion_trabajo"><br> 
+                    <input id="telefono_movil" class="form-control" type="text" name="telefono_movil"><br> 
 
                 </div>
             </form>
@@ -91,7 +91,7 @@
         <form>
             <div class="form-group">  
 
-                <h3>Eliminar Etiqueta Antecedente</h3>
+                <h3>Eliminar Telefono</h3>
                 
                 <div class="col-sm-5 text-left"> 
                     <div class="refresh">
