@@ -43,38 +43,37 @@ $(document).ready(function(){
         $("#insertar #resultado").empty();
         $.post("../controlador/ciudad/controlador_ciudad_insertar.php", {provincia: $('#insertar #nombre_provincia_ciudad').val(), nombre: $('#insertar #nombre_ciudad').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            cargarListas();
+            refrescar();
         });
-        cargarListas();
-        refrescar();
     });
     
     $("#enviarUpdate").click(function(){
         $("#modificar #resultado3").empty();
         $.post("../controlador/ciudad/controlador_ciudad_modificar.php",{id: $('#modificar #idModificar').val(), provincia: $('#modificar #nombre_provincia_ciudad_modificar').val(), nombre: $('#modificar #nombre_ciudad').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado3").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
-        
     });
     
     $("#enviarNombre").click(function(){
         $("#eliminar #resultado1").empty();
         $.post("../controlador/ciudad/controlador_ciudad_eliminar_nombre.php",{provincia: $('#eliminar #eliminaNombreProvincia').val(), nombre: $('#eliminar #eliminaNombreCiudad').val()}, function(resp){
-        $("#eliminar #resultado1").html(resp);
+            $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
         $("#eliminar #resultado2").empty();
     });
     
     $("#enviarId").click(function(){
         $("#eliminar #resultado2").empty();
         $.post("../controlador/ciudad/controlador_ciudad_eliminar_id.php",{id: $('#eliminar #eliminaIdCiudad').val()}, function(resp){
-        $("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            cargarListas();
+            refrescar();
     	});
-          refrescar();
-          cargarListas();
         $("#eliminar #resultado1").empty();
     });
     

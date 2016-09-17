@@ -43,34 +43,36 @@ $(document).ready(function(){
     $("#enviarInsert").click(function(){
         $.post("../controlador/religion/controlador_religion_insertar.php", {nombre: $('#insertar #nombre_religion').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            $("#insertar #nombre_religion").empty();
+            cargarListas();
+            refrescar();
         });
-        cargarListas();
-        refrescar();
     });
     
     $("#enviarUpdate").click(function(){
+        $("#modificar #resultado3").empty();
         $.post("../controlador/religion/controlador_religion_modificar.php",{id: $('#modificar #idModificar').val(), nombre: $('#modificar #nombre_religion').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado3").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
     });
     
     $("#enviarNombre").click(function(){
         $.post("../controlador/religion/controlador_religion_eliminar_nombre.php",{nombre: $('#eliminar #eliminaNombreReligion').val()}, function(resp){
-        $("#eliminar #resultado1").html(resp);
+            $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
         $("#eliminar #resultado2").empty();
     });
     
     $("#enviarId").click(function(){
         $.post("../controlador/religion/controlador_religion_eliminar_id.php",{id: $('#eliminar #eliminaIdReligion').val()}, function(resp){
-        $("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            cargarListas();
+            refrescar();
     	});
-          refrescar();
-          cargarListas();
         $("#eliminar #resultado1").empty();
     });
     

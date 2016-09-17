@@ -39,12 +39,10 @@ $(document).ready(function(){
     
     $("#enviarInsert").click(function(){
         $("#insertar #resultado").empty();
-        $.post("../controlador/persona/controlador_persona_insertar.php",{cedula: $('#insertar #cedula').val(), nombre: $('#insertar #nombre').val(),
-         apellido: $('#insertar #apellido').val(), fecha_nacimiento: $('#insertar #fecha_nacimiento').val(), genero: $('#insertar #genero option:selected').text(),
-          ocupacion: $('#insertar #ocupacion').val(), correo: $('#insertar #correo').val(), num_hijos: $('#insertar #numero_hijos').val(), usuario: $('#insertarUsuario').val(),
-          ciudad: $('#insertarCiudadNacimiento').val(), nivel_instruccion: $('#insertarNivelInstruccion').val(), religion: $('#insertarReligion').val(),
-          estado_civil: $('#insertarEstadoCivil').val(), etnia: $('#insertarEtnia').val()}, function(resp){
+        $.post("../controlador/persona/controlador_persona_insertar.php",{cedula: $('#insertar #cedula').val(), nombre: $('#insertar #nombre').val(), apellido: $('#insertar #apellido').val(), fecha_nacimiento: $('#insertar #fecha_nacimiento').val(), genero: $('#insertar #genero option:selected').text(),
+          ocupacion: $('#insertar #ocupacion').val(), correo: $('#insertar #correo').val(), num_hijos: $('#insertar #numero_hijos').val(), usuario: $('#insertarUsuario').val(), ciudad: $('#insertarCiudadNacimiento').val(), nivel_instruccion: $('#insertarNivelInstruccion').val(), religion: $('#insertarReligion').val(), estado_civil: $('#insertarEstadoCivil').val(), etnia: $('#insertarEtnia').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            cargarListas();
             refrescar();
     	});
         
@@ -57,6 +55,7 @@ $(document).ready(function(){
           ciudad: $('#modificarCiudadNacimiento').val(), nivel_instruccion: $('#modificarNivelInstruccion').val(), religion: $('#modificarReligion').val(),
           estado_civil: $('#modificarEstadoCivil').val(), etnia: $('#modificarEtnia').val()}, function(resp){
             $("#modificar #resultado").html(resp);
+            cargarListas();
             refrescar();
     	});
     });
@@ -66,8 +65,9 @@ $(document).ready(function(){
         $("#eliminar #resultado2").empty();
         $.post("../controlador/persona/controlador_persona_eliminar_cedula.php",{cedula: $('#eliminar #eliminarCedula').val()}, function(resp){
             $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
     });
     
     $("#enviarId").click(function(){
@@ -75,8 +75,9 @@ $(document).ready(function(){
         $("#eliminar #resultado2").empty();
         $.post("../controlador/persona/controlador_persona_eliminar_id.php",{id: $('#eliminar #eliminarId').val()}, function(resp){
             $("#eliminar #resultado2").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
 });
      
 });

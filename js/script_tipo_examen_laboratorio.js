@@ -43,25 +43,25 @@ $(document).ready(function(){
     $("#enviarInsert").click(function(){
         $.post("../controlador/tipo_examen_laboratorio/controlador_tipo_examen_laboratorio_insertar.php", {nombre: $('#insertar #nombre_tipo_examen_laboratorio').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            cargarListas();
+            refrescar();
         });
-        cargarListas();
-        refrescar();
     });
     
     $("#enviarUpdate").click(function(){
         $.post("../controlador/tipo_examen_laboratorio/controlador_tipo_examen_laboratorio_modificar.php",{id: $('#modificar #idModificar').val(), nombre: $('#modificar #nombre_tipo_examen_laboratorio').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado3").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
     });
     
     $("#enviarNombre").click(function(){
         $.post("../controlador/tipo_examen_laboratorio/controlador_tipo_examen_laboratorio_eliminar_nombre.php",{nombre: $('#eliminar #eliminaNombreTipoExamenLaboratorio').val()}, function(resp){
             $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
         $("#eliminar #resultado2").empty();
     });
     

@@ -43,34 +43,35 @@ $(document).ready(function(){
     $("#enviarInsert").click(function(){
         $.post("../controlador/tipo_tratamiento/controlador_tipo_tratamiento_insertar.php", {nombre: $('#insertar #nombre_tipo_tratamiento').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            cargarListas();
+            refrescar();
         });
-        cargarListas();
-        refrescar();
     });
     
     $("#enviarUpdate").click(function(){
         $.post("../controlador/tipo_tratamiento/controlador_tipo_tratamiento_modificar.php",{id: $('#modificar #idModificar').val(), nombre: $('#modificar #nombre_tipo_tratamiento').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado3").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
+
     });
     
     $("#enviarNombre").click(function(){
         $.post("../controlador/tipo_tratamiento/controlador_tipo_tratamiento_eliminar_nombre.php",{nombre: $('#eliminar #eliminaNombreTipoTratamiento').val()}, function(resp){
             $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
         $("#eliminar #resultado2").empty();
     });
     
     $("#enviarId").click(function(){
         $.post("../controlador/tipo_tratamiento/controlador_tipo_tratamiento_eliminar_id.php",{id: $('#eliminar #eliminaIdTipoTratamiento').val()}, function(resp){
-        $   ("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            cargarListas();
+            refrescar();
     	});
-          refrescar();
-          cargarListas();
         $("#eliminar #resultado1").empty();
     });
     

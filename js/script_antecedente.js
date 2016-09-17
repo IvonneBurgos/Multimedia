@@ -43,38 +43,37 @@ $(document).ready(function(){
         $("#insertar #resultado").empty();
         $.post("../controlador/antecedente/controlador_antecedente_insertar.php", {nombre: $('#insertar #nombre_antecedente').val(), tipo: $('#insertar #nombre_tipo_antecedente_modificar').val(), subtipo: $('#insertar #nombre_subtipo_antecedente_modificar').val()}, function(resp){
             $("#insertar #resultado").html(resp);
+            cargarListas();
+            refrescar();
         });
-        cargarListas();
-        refrescar();
     });
     
     $("#enviarUpdate").click(function(){
         $("#modificar #resultado3").empty();
         $.post("../controlador/antecedente/controlador_antecedente_modificar.php",{id: $('#modificar #idModificar').val(), tipo: $('#modificar #nombre_tipo_antecedente_modificar').val(), subtipo: $('#modificar #nombre_subtipo_antecedente_modificar').val(), nombre: $('#modificar #nombre_antecedente').val(), estado: $('#estadoModificar option:selected').text()}, function(resp){
             $("#modificar #resultado3").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
-        
     });
     
     $("#enviarNombre").click(function(){
         $("#eliminar #resultado1").empty();
         $.post("../controlador/antecedente/controlador_antecedente_eliminar_nombre.php",{tipo: $('#eliminar #eliminaNombreAntecedenteTipo').val(), subtipo: $('#eliminar #eliminaNombreAntecedenteSubtipo').val()}, function(resp){
-        $("#eliminar #resultado1").html(resp);
+            $("#eliminar #resultado1").html(resp);
+            cargarListas();
+            refrescar();
     	});
-        refrescar();
-        cargarListas();
         $("#eliminar #resultado2").empty();
     });
     
     $("#enviarId").click(function(){
         $("#eliminar #resultado2").empty();
         $.post("../controlador/antecedente/controlador_antecedente_eliminar_id.php",{id: $('#eliminar #eliminaIdAntecedente').val()}, function(resp){
-        $("#eliminar #resultado2").html(resp);
+            $("#eliminar #resultado2").html(resp);
+            cargarListas();
+            refrescar();
     	});
-          refrescar();
-          cargarListas();
         $("#eliminar #resultado1").empty();
     });
     
