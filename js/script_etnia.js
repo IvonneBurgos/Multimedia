@@ -56,17 +56,17 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/etnia/controlador_etnia_eliminar_nombre.php",{nombre: $('#eliminaNombreEtnia option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/etnia/controlador_etnia_eliminar_id.php",{id: $('#eliminaIdEtnia option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas(); 
     	});
-          refrescar();
-          cargarListas();
 });
 });
 

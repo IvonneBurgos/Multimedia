@@ -56,17 +56,17 @@ $(document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_nombre.php",{nombre: $('#eliminaNombreSubtipoExamenLaboratorio option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/subtipo_examen_laboratorio/controlador_subtipo_examen_laboratorio_eliminar_id.php",{id: $('#eliminaIdSubtipoExamenLaboratorio option:selected').val()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();     
     	});
-          refrescar();
-          cargarListas();
 });
 });
 

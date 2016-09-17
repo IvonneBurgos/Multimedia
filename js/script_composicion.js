@@ -55,17 +55,17 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/composicion/controlador_composicion_eliminar_nombre.php",{nombre: $('#eliminaNombreComposicion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/composicion/controlador_composicion_eliminar_id.php",{id: $('#eliminaIdComposicion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();     
     	});
-          refrescar();
-          cargarListas();
 });
 });
 

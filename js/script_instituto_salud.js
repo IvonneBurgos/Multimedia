@@ -56,17 +56,17 @@ $(document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/instituto_salud/controlador_instituto_salud_eliminar_nombre.php",{id: $('#eliminaNombreInstituto option:selected').val()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/instituto_salud/controlador_instituto_salud_eliminar_id.php",{id: $('#eliminaIdInstituto option:selected').val()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();     
     	});
-          refrescar();
-          cargarListas();
 });
 });
 

@@ -55,17 +55,17 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/tipo_diagnostico/controlador_tipo_diagnostico_eliminar_nombre.php",{nombre: $('#eliminaNombreTipoDiagnostico option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/tipo_diagnostico/controlador_tipo_diagnostico_eliminar_id.php",{id: $('#eliminaIdTipoDiagnostico option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();     
     	});
-          refrescar();
-          cargarListas();
 });
 });
 

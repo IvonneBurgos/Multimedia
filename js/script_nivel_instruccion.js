@@ -56,17 +56,17 @@ $( document).ready(function(){
     $("#enviarNombre").click(function(){
          $.post("../controlador/nivel_instruccion/controlador_nivel_instruccion_eliminar_nombre.php",{nombre: $('#eliminaNombreNivelInstruccion option:selected').text()}, function(resp){
    $("#eliminar #resultado1").html(resp);
-    	});
         refrescar();
-        cargarListas();
+        cargarListas();     
+    	});
 });
     
       $("#enviarId").click(function(){
          $.post("../controlador/nivel_instruccion/controlador_nivel_instruccion_eliminar_id.php",{id: $('#eliminaIdNivelInstruccion option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
+        refrescar();
+        cargarListas();     
     	});
-          refrescar();
-          cargarListas();
 });
 });
 
