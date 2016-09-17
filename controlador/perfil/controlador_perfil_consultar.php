@@ -1,4 +1,5 @@
-       <?php
+
+ <?php
 require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
          //url del webservice que invocaremos
   $wsdl="http://appmedica.publidimas.com/sw/vista/servicio_web.php?wsdl";
@@ -8,14 +9,12 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $err = $client->getError();
         if ($err) {	echo 'Error en Constructor' . $err ; } 
         //pasando parametros de entrada que seran pasados hacia el metodo
-       
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','nombre','estado'];
+       $arregloCampos = ['id','nombre','estado'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaPerfil');
-
         
         //¿ocurrio error al llamar al web service?
         if ($client->fault) { // si
@@ -35,7 +34,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
 	if ($err) {		// Muestra el error
 		echo 'Error' . $err ;
 	} else {		// Muestra el resultado
-        for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
+            for ($x = 0; $x < sizeof(explode("@",$resultado)); $x++){
             $linea = (explode("@",$resultado)[$x]);
             $pila =[];
             for ($z = 0; $z < (sizeof(explode("#",$linea))-1); $z++){
@@ -44,7 +43,8 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
             array_push($pilamaster,$pila);
         }
         $pilasuperior['listaopciones']=$pilamaster;
-        echo json_encode($pilasuperior);
-	}
+            echo json_encode($pilasuperior);
+        }
+	
 }
         ?>
