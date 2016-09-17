@@ -68,15 +68,9 @@
                     <br>
                     <label>Id:</label><br>
                     <select id='idModificar' class="form-control"></select><br>
-                    <label>Nombre: </label><br>
-                    <p id='modificaidPersona'></p>
                     <label>Tipo de Sangre:</label><br>
                     <select id='modificaidSangre' class="form-control"></select><br>
-                    <label>Estado:</label><br>
-                    <select id="estadoModificar" class="form-control">
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                    </select>
+                    
                 </div>
             </form>
             
@@ -101,7 +95,7 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdOpcion' class="form-control"></select><br>
+                    <select id='eliminaIdPaciente' class="form-control"></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 

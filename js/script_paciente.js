@@ -49,12 +49,12 @@ $( document).ready(function(){
 });
     
     $("#enviarUpdate").click(function(){
-        $.post("../controlador/paciente/controlador_paciente_modificar.php",{}, function(resp){
+        $.post("../controlador/paciente/controlador_paciente_modificar.php",{paciente:$('#idModificar option:selected').text(), persona:$('#idModificar option:selected').val(), sangre:$('#modificaidSangre option:selected').val()}, function(resp){
    $("#modificar #resultado").html(resp);
     	});
 });
     
-    $("#enviarNombre").click(function(){
+   /* $("#enviarNombre").click(function(){
         $("#eliminar #resultado1").html('');
         $("#eliminar #resultado2").html('');
          $.post("../controlador/paciente/controlador_paciente_eliminar_nombre.php",{nombre: $('#eliminaNombreOpcion option:selected').text()}, function(resp){
@@ -63,19 +63,20 @@ $( document).ready(function(){
             cargarListas();
     	});
       
-});
+});*/
     
       $("#enviarId").click(function(){
          $("#eliminar #resultado1").html('');
          $("#eliminar #resultado2").html('');
-         $.post("../controlador/opcion/controlador_opcion_eliminar_id.php",{id: $('#eliminaIdOpcion option:selected').text()}, function(resp){
+         $.post("../controlador/paciente/controlador_paciente_eliminar_id.php",{paciente: $('#eliminaIdEmpleado option:selected').text()}, function(resp){
    $("#eliminar #resultado2").html(resp);
             refrescar();
             cargarListas();
     	});
 });
-});
 
+
+});
 
 function refrescar(){
      $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
@@ -86,7 +87,7 @@ function refrescar(){
         if (x==0){
             $(".refresh").html('');
         }
-            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"  "+parse.listaopciones[x].persona+"  "+parse.listaopciones[x].sangre+'</div>');
+            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"  "+parse.listaopciones[x].id_persona+"  "+parse.listaopciones[x].sangre+'</div>');
         }
     }
     else
@@ -98,9 +99,9 @@ function refrescar(){
 
 function cargarListas(){
       //Limpia los select
-    $('#eliminaNombreOpcion')
-    .empty();
-    $('#eliminaIdOpcion')
+    /*$('#eliminaNombreOpcion')
+    .empty();*/
+    $('#eliminaIdPaciente')
     .empty();
     $('#idModificar')
     .empty();
@@ -114,9 +115,9 @@ function cargarListas(){
     $.post("../controlador/paciente/controlador_paciente_consultar.php", function(resp){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
-            $("#eliminaIdOpcion").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
-            $("#idModificar").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
-             $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');
+            $("#eliminaIdPaciente").append( '<option value="'+parse.listaopciones[x].id+ '">'+parse.listaopciones[x].id+' </option>');
+            $("#idModificar").append( '<option value="'+parse.listaopciones[x].id_persona+ '">'+parse.listaopciones[x].id+' </option>');
+            /* $("#eliminaNombreOpcion").append( '<option value="'+parse.listaopciones[x].nombre+ '">'+parse.listaopciones[x].nombre+' </option>');*/
         }
     ;});
     
@@ -124,7 +125,8 @@ function cargarListas(){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#idPersona").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido+'</option>');
-        }});
+        }
+     });
     
      $.post("../controlador/grupo_sanguineo/controlador_grupo_sanguineo_consultar.php", function(resp){
         var parse = JSON.parse(resp);
