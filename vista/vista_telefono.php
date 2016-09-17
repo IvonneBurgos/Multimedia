@@ -32,6 +32,8 @@
                     <br>
                     <label>Persona:</label><br>
                     <select id='idPersona' class="form-control"></select><br>
+                    <label>Direccion:</label><br>
+                    <p id='id_direccion'></p><br>
                     <label>Telefono Fijo</label>
                     <input id="direccion_residencia" class="form-control" type="text" name="direccion_residencia"><br> 
                     <label>Telefono Móvil</label>
@@ -64,13 +66,13 @@
                     <h3>Modificar Dirección</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idDireccion' class="form-control"></select><br>
+                    <select id='idTelefono' class="form-control"></select><br>
                     <label>Persona:</label><br>
                     <p id="mod_id_persona"></p><br>
-                    <label>Dirección de Residencia</label>
-                    <input id="direccion_residencia" class="form-control" type="text" name="direccion_residencia"><br> 
-                    <label>Dirección de Trabajo</label>
-                    <input id="direccion_trabajo" class="form-control" type="text" name="direccion_trabajo"><br> 
+                    <label>Telefono Fijo</label>
+                    <input id="telefono_fijo" class="form-control" type="text" name="telefono_fijo"><br>
+                    <label>Telefono Móvil</label>
+                    <input id="telefono_movil" class="form-control" type="text" name="telefono_movil"><br>
                     <label>Estado:</label><br>
                     <select id="estadoModificar" class="form-control">
                     <option value="Activo">Activo</option>

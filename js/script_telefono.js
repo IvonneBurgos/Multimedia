@@ -43,7 +43,7 @@ $( document).ready(function(){
     });
     
     $("#enviarInsert").click(function(){
-        $.post("../controlador/telefono/controlador_telefono_insertar.php",{id_persona:$('#idPersona option:selected').val(), telefono_fijo:$('#insertar #telefono_fijo').val(),telefono_movil:$('#insertar #telefono_movil').val()}, function(resp){
+        $.post("../controlador/telefono/controlador_telefono_insertar.php",{id_persona:$('#idPersona option:selected').val(), id_direccion:$('#insertar #id_direccion').val(),telefono_fijo:$('#insertar #telefono_fijo').val(),telefono_movil:$('#insertar #telefono_movil').val()}, function(resp){
    $("#insertar #resultado").html(resp);
     	});
         
@@ -52,12 +52,13 @@ $( document).ready(function(){
     $("#enviarUpdate").click(function(){
         
         $("#modificar #resultado").html('');
-        $.post("../controlador/direccion/controlador_direccion_modificar.php",
+        $.post("../controlador/telefono/controlador_telefono_modificar.php",
                {
-                    id: $('#idDireccion option:selected').text(),
-                    id_persona: $('#idDireccion option:selected').attr('value2'),
-                    direccion_residencia:$('#modificar #direccion_residencia').val(),
-                    direccion_trabajo:$('#modificar #direccion_trabajo').val(), 
+                    id: $('#idTelefono option:selected').text(),
+                    id_persona: $('#idTelefono option:selected').attr('value2'),
+                    id_direccion: $('#idTelefono option:selected').attr('value3'),
+                    telefono_fijo: $('#modificar #telefono_fijo').val(),
+                    telefono_movil: $('#modificar #telefono_movil').val(), 
                     estado: $('#estadoModificar option:selected').text()},
                function(resp){
                     $("#modificar #resultado").html(resp);
@@ -71,10 +72,10 @@ $( document).ready(function(){
           cargarListas();
     	});  
 });
-    $( "#idDireccion" )
+    $( "#idTelefono" )
   .change(function() {
     var str = "";
-    $( "#idDireccion option:selected" ).each(function() {
+    $( "#idTelefono option:selected" ).each(function() {
       str += $( this ).val() + " ";
     });
     $( "#mod_id_persona" ).text( str );
@@ -92,7 +93,7 @@ function refrescar(){
         if (x==0){
             $(".refresh").html('');
         }
-            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"   "+ parse.listaopciones[x].id_persona+"  "+parse.listaopciones[x].cedula+"  "+parse.listaopciones[x].nombre+"   "+parse.listaopciones[x].apellido+"  "+parse.listaopciones[x].telefono_fijo+"   "+ parse.listaopciones[x].telefono_movil+'</div>');
+            $(".refresh").append('<div class="col-md-10">'+"   "+ parse.listaopciones[x].id+"   "+ parse.listaopciones[x].id_persona+"  "+parse.listaopciones[x].id_direccion+" "+parse.listaopciones[x].cedula+"  "+parse.listaopciones[x].nombre+"   "+parse.listaopciones[x].apellido+"  "+parse.listaopciones[x].telefono_fijo+"   "+ parse.listaopciones[x].telefono_movil+'</div>');
         }
     }
     else
@@ -104,7 +105,7 @@ function refrescar(){
 function cargarListas(){
     $('#idPersona').empty();
     $('#eliminaIdOpcion').empty();
-    $('#idDireccion').empty();
+    $('#idTelefono').empty();
     $('#mod_id_persona').html('');
     $.post("../controlador/persona/controlador_persona_consultar.php", function(resp){
         var parse = JSON.parse(resp);
@@ -115,9 +116,10 @@ function cargarListas(){
         var parse = JSON.parse(resp);
         for(var x=0 ; x < (parse.listaopciones.length-1); x++){
             $("#eliminaIdOpcion").append('<option value="'+parse.listaopciones[x].id+'">'+parse.listaopciones[x].id+'</option>');
+            $("#idTelefono").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'" value2="'+ parse.listaopciones[x].id_persona+'" value3="'+parse.listaopciones[x].id_direccion+'">'+parse.listaopciones[x].id+'</option>');
            /* $("#idDireccion").append('<option value="'+parse.listaopciones[x].nombre+" "+parse.listaopciones[x].apellido +'" value2="'+ parse.listaopciones[x].id_persona+'">'+parse.listaopciones[x].id+'</option>');*/
         }
-          /* $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido);*/  
+           $( "#mod_id_persona" ).text(parse.listaopciones[0].nombre+" "+parse.listaopciones[0].apellido);  
            
     });
 }

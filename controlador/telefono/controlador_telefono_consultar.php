@@ -11,7 +11,7 @@ require_once('../../lib/nusoap-0.9.5/lib/nusoap.php');
         $pila = [];
         $pilamaster= [];
         $pilasuperior = [];
-        $arregloCampos = ['id','id_persona','cedula','nombre','apellido','telefono_fijo','telefono_movil'];
+        $arregloCampos = ['id','id_persona','id_direccion','cedula','nombre','apellido','telefono_fijo','telefono_movil'];
         //llamando al metodo y recuperando el array de productos en una variable
         $resultado = $client->call('listaTelefonoNew');
         
