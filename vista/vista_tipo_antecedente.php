@@ -64,7 +64,7 @@
                     <h3>Modificar un Tipo de Antecedente</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
+                    <select class="form-control" id='idModificar'></select><br>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre_tipo_antecedente" class="form-control" type="text" name="nombre"><br>
@@ -99,12 +99,12 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreTipoAntecedente'></select><br>
+                    <select class="form-control" id='eliminaNombreTipoAntecedente'></select><br>
                     <br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdTipoAntecedente'></select><br>
+                    <select class="form-control" id='eliminaIdTipoAntecedente'></select><br>
                     <br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>

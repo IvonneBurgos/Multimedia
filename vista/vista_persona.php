@@ -44,7 +44,7 @@
                     <label>Fecha de Nacimiento:</label><br>
                     <input id="fecha_nacimiento" class="form-control" type="date" name="fecha_nacimiento"><br>
                     <label>Género:</label><br>
-                    <select id="genero" class="form-control">
+                    <select class="form-control" id="genero">
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                     </select><br>
@@ -55,17 +55,17 @@
                     <label>Número de Hijos:</label><br>
                     <input id="numero_hijos" class="form-control" type="number" name="numero_hijos"><br>
                     <label>Usuario:</label><br>
-                    <select id='insertarUsuario'></select><br>
+                    <select class="form-control" id='insertarUsuario'></select><br>
                     <label>Ciudad Nacimiento:</label><br>
-                    <select id='insertarCiudadNacimiento'></select><br>
+                    <select class="form-control" id='insertarCiudadNacimiento'></select><br>
                     <label>Nivel Instrucción:</label><br>
-                    <select id='insertarNivelInstruccion'></select><br>
+                    <select class="form-control" id='insertarNivelInstruccion'></select><br>
                     <label>Religión:</label><br>
-                    <select id='insertarReligion'></select><br>
+                    <select class="form-control" id='insertarReligion'></select><br>
                     <label>Estado Civil:</label><br>
-                    <select id='insertarEstadoCivil'></select><br>
+                    <select class="form-control" id='insertarEstadoCivil'></select><br>
                     <label>Etnia:</label><br>
-                    <select id='insertarEtnia'></select><br>
+                    <select class="form-control" id='insertarEtnia'></select><br>
                 </div>
             </form>
            
@@ -93,7 +93,7 @@
                     <h3>Modificar una Persona</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id="modificarId" type="text" name="id"></select><br>
+                    <select class="form-control" id="modificarId" type="text" name="id"></select><br>
                     <label>Cédula:</label><br>
                     <input id="cedula" class="form-control" type="text" name="cedula"><br>
                     <label>Nombre:</label><br>
@@ -104,7 +104,7 @@
                     <input id="fecha_nacimiento" class="form-control" type="date" name="fecha_nacimiento"><br>
                     <label>Género:</label><br>
                     <br>
-                    <select id="genero" class="form-control">
+                    <select class="form-control" id="genero">
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
                     </select>
@@ -115,17 +115,17 @@
                     <label>Número de Hijos:</label><br>
                     <input id="numero_hijos" class="form-control" type="number" name="numero_hijos"><br>
                     <label>Usuario:</label><br>
-                    <select id='modificarUsuario'></select><br>
+                    <select class="form-control" id='modificarUsuario'></select><br>
                     <label>Ciudad Nacimiento:</label><br>
-                    <select id='modificarCiudadNacimiento'></select><br>
+                    <select class="form-control" id='modificarCiudadNacimiento'></select><br>
                     <label>Nivel Instrucción:</label><br>
-                    <select id='modificarNivelInstruccion'></select><br>
+                    <select class="form-control" id='modificarNivelInstruccion'></select><br>
                     <label>Religión:</label><br>
-                    <select id='modificarReligion'></select><br>
+                    <select class="form-control" id='modificarReligion'></select><br>
                     <label>Estado Civil:</label><br>
-                    <select id='modificarEstadoCivil'></select><br>
+                    <select class="form-control" id='modificarEstadoCivil'></select><br>
                     <label>Etnia:</label><br>
-                    <select id='modificarEtnia'></select><br>
+                    <select class="form-control" id='modificarEtnia'></select><br>
                 </div>
             </form>
             
@@ -150,12 +150,12 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Cédula:</label><br>
-                    <select id='eliminarCedula'></select><br>
+                    <select class="form-control" id='eliminarCedula'></select><br>
                     <input id="enviarCedula" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminarId'></select><br>
+                    <select class="form-control" id='eliminarId'></select><br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
                 

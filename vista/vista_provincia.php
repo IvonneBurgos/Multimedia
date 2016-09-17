@@ -64,13 +64,13 @@
                     <h3>Modificar una Provincia</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
+                    <select class="form-control" id='idModificar'></select><br>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre_provincia" class="form-control" type="text" name="nombre"><br>
                     <br>
                     <label>Estado:</label><br>
-                    <select id="estadoModificar" class="form-control">
+                    <select class="form-control" id="estadoModificar">
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                     </select>
@@ -99,13 +99,13 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreProvincia'></select><br>
+                    <select class="form-control" id='eliminaNombreProvincia'></select><br>
                     <br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdProvincia'></select><br>
+                    <select class="form-control" id='eliminaIdProvincia'></select><br>
                     <br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>

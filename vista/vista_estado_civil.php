@@ -64,7 +64,7 @@
                     <h3>Modificar un Estado Civil</h3>
                     <br>
                     <label>Id:</label><br>
-                    <select id='idModificar'></select><br>
+                    <select class="form-control" id='idModificar'></select><br>
                     <br>
                     <label>Nombre:</label><br>
                     <input id="nombre_estado_civil" class="form-control" type="text" name="nombre"><br>
@@ -93,13 +93,13 @@
                 <div class="col-sm-5 text-left"> 
 
                     <label>Eliminar por Nombre:</label><br>
-                    <select id='eliminaNombreEstadoCivil'></select><br>
+                    <select class="form-control" id='eliminaNombreEstadoCivil'></select><br>
                     <br>
                     <input id="enviarNombre" type="button" class="btn btn-primary" value='Eliminar'><br>
                     <div id="resultado1"></div><br><br>
 
                     <label>Eliminar por Id:</label><br>
-                    <select id='eliminaIdEstadoCivil'></select><br>
+                    <select class="form-control" id='eliminaIdEstadoCivil'></select><br>
                     <br>
                     <input id="enviarId" class="btn btn-primary" type="button" value='Eliminar'><br>
                     <div id="resultado2"></div>
